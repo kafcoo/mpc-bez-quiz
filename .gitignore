@@ -5,3 +5,8 @@ test-results/
 playwright-report/
 *.local
 *.tsbuildinfo
+# Original local study materials are not part of the public application.
+/prompt.md
+/*.pdf
+/src/data/source.txt
+/src/data/extracted.json
