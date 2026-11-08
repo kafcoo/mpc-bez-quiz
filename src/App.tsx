@@ -35,6 +35,7 @@ import {
   mastered,
   parseStore,
   questions,
+  questionNumber,
   save,
   stats,
   type Question,
@@ -50,8 +51,9 @@ const groups = [
 ];
 const fmt = (v: number | null) => (v === null ? "—" : `${v} %`);
 const statusText = {
-  verified: "Doloženo zdrojem",
+  verified: "Lokálně ověřeno",
   provisional: "Pracovní návrh",
+  provisional_ambiguous: "Předběžné · nejednoznačné",
   needs_review: "K ověření",
 };
 function download(name: string, data: unknown) {
@@ -254,9 +256,9 @@ export default function App() {
       );
     if (config === "random" && topics.length)
       pool = pool.filter((q) => topics.includes(q.category));
-    if (store.settings.excludeUnverified)
+    if (store.settings.excludeNeedsReview)
       pool = pool.filter(
-        (q) => q.verificationStatus === "verified" && q.correctAnswerId,
+        (q) => q.answerStatus !== "needs_review" && q.correctAnswerId,
       );
     if (!pool.length) {
       setNotice(
@@ -313,36 +315,23 @@ export default function App() {
         (filter === "mastered" && mastered(store.progress[q.id])) ||
         (filter === "unseen" &&
           !store.answers.some((a) => a.questionId === q.id)) ||
-        (filter === "review" && q.verificationStatus !== "verified")),
+        (filter === "review" && q.answerStatus !== "verified")),
   );
   const renderStatus = (question: Question) => (
-    <span className={`badge ${question.verificationStatus}`}>
-      {statusText[question.verificationStatus]}
+    <span className={`badge ${question.answerStatus}`}>
+      {statusText[question.answerStatus]}
     </span>
   );
   const questionDetails = (question: Question) => (
     <div className="explanation">
       <strong>
-        {question.correctAnswerId
-          ? `${question.verificationStatus === "verified" ? "Doložená odpověď" : "Podmíněný testový návrh"}: ${question.options.find((o) => o.id === question.correctAnswerId)?.text}`
+        {question.answerStatus !== "needs_review" && question.correctAnswerId
+          ? `${question.answerStatus === "verified" ? "Lokálně ověřená odpověď" : "Předběžný pracovní klíč"}: ${question.options.find((o) => o.id === question.correctAnswerId)?.text}`
           : "Klíč není určen · bez hodnocení"}
       </strong>
-      {question.expectedTestAnswerId &&
-        question.verificationStatus !== "verified" && (
-          <p className="audit-intent">
-            Pravděpodobný záměr sady 2022: původní možnost{" "}
-            {question.expectedTestAnswerId.toUpperCase()} —{" "}
-            {
-              question.options.find(
-                (o) => o.id === question.expectedTestAnswerId,
-              )?.text
-            }
-            . Tento návrh se v nových testech nehodnotí.
-          </p>
-        )}
       <p>{question.explanation}</p>
       <small>{question.note}</small>
-      {question.sources && (
+      {!!question.sources?.length && (
         <div className="question-sources">
           <strong>
             Zdroje kontroly ·{" "}
@@ -610,7 +599,7 @@ export default function App() {
                     {groups.map(([a, b]) => {
                       const s = stats(
                         store.answers.filter((x) => {
-                          const n = Number(x.questionId.slice(1));
+                          const n = questionNumber(x.questionId);
                           return n >= a && n <= b;
                         }),
                       );
@@ -669,11 +658,9 @@ export default function App() {
                 <span>
                   Vycházíme ze sady otázek 2022. Klíč není oficiální; pracovní a
                   sporné odpovědi jsou označené.{" "}
-                  {
-                    all.filter((q) => q.verificationStatus === "needs_review")
-                      .length
-                  }{" "}
-                  otázek čeká na ověření.
+                  {all.filter((q) => q.answerStatus === "needs_review").length}{" "}
+                  otázek je bez hodnocení. Ostatní se hodnotí podle předběžného
+                  klíče v JSONu.
                 </span>
                 <button
                   className="text-button"
@@ -725,11 +712,13 @@ export default function App() {
                     : `${active.answers.length} zodpovězeno · vyhodnocení na konci`}
                 </span>
               </div>
-              {active.questions.some((question) => !question.reviewedAt) && (
+              {active.questions.some(
+                (question) => question.keySource === "legacy",
+              ) && (
                 <p className="alert">
-                  Tento rozpracovaný test vznikl před kontrolou klíče z 8. 11.
-                  2026 a zachovává původní klíč. Pro aktuální zdroje a hodnocení
-                  zahaj nový test.
+                  Tento test obsahuje klíč z doby před přechodem na dodaný JSON.
+                  Zachovává tehdejší hodnocení. Pro nový výchozí klíč obnov
+                  případné lokální úpravy a zahaj nový test.
                 </p>
               )}
               <progress
@@ -763,14 +752,14 @@ export default function App() {
                       <button
                         key={o.id}
                         disabled={!!selected}
-                        className={`answer ${selected?.answerId === o.id ? "chosen" : ""} ${reveal && q.correctAnswerId === o.id ? "correct" : ""} ${reveal && selected.correct === false && selected.answerId === o.id ? "incorrect" : ""}`}
+                        className={`answer ${selected?.answerId === o.id ? "chosen" : ""} ${reveal && selected.correct !== null && q.correctAnswerId === o.id ? "correct" : ""} ${reveal && selected.correct === false && selected.answerId === o.id ? "incorrect" : ""}`}
                         onClick={() => choose(o.id)}
                       >
                         <span className="answer-key">{i + 1}</span>
                         {o.text}
-                        {reveal && q.correctAnswerId === o.id && (
-                          <Check size={20} />
-                        )}
+                        {reveal &&
+                          selected.correct !== null &&
+                          q.correctAnswerId === o.id && <Check size={20} />}
                       </button>
                     );
                   })}
@@ -811,8 +800,8 @@ export default function App() {
                 </div>
               </article>
               <p className="muted quiz-note">
-                {q.verificationStatus === "provisional"
-                  ? "Podmíněný nebo historický návrh: v nových testech se nezapočítává do úspěšnosti."
+                {q.answerStatus.startsWith("provisional")
+                  ? "Hodnoceno podle předběžného pracovního klíče z JSONu. Nejde o oficiálně potvrzenou správnost."
                   : q.correctAnswerId === null
                     ? "Tato otázka nemá určený klíč a nezapočítá se do úspěšnosti."
                     : "Klíč slouží pro studium a není oficiálním klíčem vyučujícího."}
@@ -969,8 +958,10 @@ export default function App() {
                       <li
                         key={o.id}
                         className={
-                          showKey && question.correctAnswerId === o.id
-                            ? question.verificationStatus === "verified"
+                          showKey &&
+                          question.answerStatus !== "needs_review" &&
+                          question.correctAnswerId === o.id
+                            ? question.answerStatus === "verified"
                               ? "key-correct"
                               : "key-provisional"
                             : ""
@@ -979,7 +970,7 @@ export default function App() {
                         <span>{o.id.toUpperCase()}</span>
                         {o.text}
                         {showKey &&
-                          question.verificationStatus === "verified" &&
+                          question.answerStatus === "verified" &&
                           question.correctAnswerId === o.id && (
                             <Check size={16} />
                           )}
@@ -1020,7 +1011,9 @@ export default function App() {
                   </h1>
                   <p>
                     Každý pokus se počítá. Úspěšnost vychází pouze z hodnocených
-                    odpovědí.
+                    odpovědí podle použitého pracovního klíče. Předběžné
+                    odpovědi nejsou oficiálně potvrzené. Starší výsledky si
+                    zachovávají tehdejší klíč.
                   </p>
                 </div>
               </div>
@@ -1089,8 +1082,8 @@ export default function App() {
                           stats(
                             store.answers.filter(
                               (x) =>
-                                +x.questionId.slice(1) >= a &&
-                                +x.questionId.slice(1) <= b,
+                                questionNumber(x.questionId) >= a &&
+                                questionNumber(x.questionId) <= b,
                             ),
                           ).rate,
                         )}
@@ -1123,7 +1116,7 @@ export default function App() {
                         }}
                       >
                         <span>
-                          #{p.questionId.slice(1)}{" "}
+                          #{questionNumber(p.questionId)}{" "}
                           {all.find((q) => q.id === p.questionId)?.question}
                         </span>
                         <b>{p.incorrect}×</b>
@@ -1205,23 +1198,23 @@ export default function App() {
                 <label className="check-row">
                   <input
                     type="checkbox"
-                    checked={store.settings.excludeUnverified}
+                    checked={store.settings.excludeNeedsReview}
                     onChange={(e) =>
                       setStore((s) => ({
                         ...s,
                         settings: {
                           ...s.settings,
-                          excludeUnverified: e.target.checked,
+                          excludeNeedsReview: e.target.checked,
                         },
                       }))
                     }
                   />
-                  Do nových testů zařadit jen odborně posouzené odpovědi
+                  Vynechat otázky k ověření (needs_review)
                 </label>
                 <p className="muted">
-                  V nových testech se hodnotí jen doložené odpovědi. Ostatní
-                  otázky lze zahrnout pro studium bez vlivu na skóre. Odpovědi
-                  se promíchávají vždy.
+                  Předběžné odpovědi se hodnotí podle pracovního klíče v JSONu.
+                  Otázky needs_review se nehodnotí. Možnosti se promíchávají
+                  vždy.
                 </p>
               </section>
               <section className="panel settings-panel">
@@ -1297,22 +1290,20 @@ export default function App() {
               <section className="panel settings-panel">
                 <h2>Jak funguje klíč a opakování?</h2>
                 <p>
-                  Zdrojový dokument z roku 2022 neobsahuje oficiální klíč.
-                  Kontrola 8. 11. 2026 porovnala všech 62 otázek se zdroji.
-                  „Doloženo zdrojem“ má 47 položek. U 11 je návrh podmíněný nebo
-                  historický; 4 otázky jsou sporné. Posledních 15 se v nových
-                  testech nehodnotí. Odhad testového záměru je oddělen od
-                  hodnotícího klíče. Nejde o oficiální klíč ani potvrzení
-                  aktuálnosti všech norem.
+                  Primárním zdrojem je MPC-BEZ_otazky_klic.json: všech 62 otázek
+                  i možností je zachováno přesně. 45 odpovědí je předběžných, 16
+                  předběžných a nejednoznačných. Otázka 7 má stav needs_review a
+                  neovlivňuje skóre. Ostatní se hodnotí podle correctAnswerId
+                  jako pracovní klíč, nikoli jako oficiálně potvrzené odpovědi.
                 </p>
                 <p>
                   <a
                     className="text-button"
-                    href="https://github.com/kafcoo/mpc-bez-quiz/blob/main/docs/kontrola-otazek.md"
+                    href="https://github.com/kafcoo/mpc-bez-quiz/blob/main/src/data/MPC-BEZ_otazky_klic.json"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Podrobná kontrola všech 62 otázek a její meze ↗
+                    Výchozí databáze a poznámky ke klíči ↗
                   </a>
                 </p>
                 <p>
@@ -1421,8 +1412,8 @@ export default function App() {
                           stats(
                             store.answers.filter(
                               (x) =>
-                                +x.questionId.slice(1) >= a &&
-                                +x.questionId.slice(1) <= b,
+                                questionNumber(x.questionId) >= a &&
+                                questionNumber(x.questionId) <= b,
                             ),
                           ).rate,
                         )}
@@ -1560,22 +1551,22 @@ export default function App() {
             <label className="check-row">
               <input
                 type="checkbox"
-                checked={store.settings.excludeUnverified}
+                checked={store.settings.excludeNeedsReview}
                 onChange={(e) =>
                   setStore((s) => ({
                     ...s,
                     settings: {
                       ...s.settings,
-                      excludeUnverified: e.target.checked,
+                      excludeNeedsReview: e.target.checked,
                     },
                   }))
                 }
               />
-              Pouze odborně posouzené odpovědi
+              Vynechat otázky k ověření (needs_review)
             </label>
             <p className="muted">
-              Žádný klíč není oficiální. Podmíněné a sporné otázky se v nových
-              testech nehodnotí.
+              Klíč je předběžný. Otázky needs_review se nikdy nezapočítávají
+              jako správné ani chybné.
             </p>
             {notice && (
               <p role="alert" className="alert">
@@ -1639,8 +1630,8 @@ export default function App() {
                   setEditing({
                     ...editing,
                     correctAnswerId: e.target.value || null,
-                    verificationStatus: e.target.value
-                      ? editing.verificationStatus
+                    answerStatus: e.target.value
+                      ? editing.answerStatus
                       : "needs_review",
                   })
                 }
@@ -1656,17 +1647,19 @@ export default function App() {
             <label>
               Stav ověření
               <select
-                value={editing.verificationStatus}
+                value={editing.answerStatus}
                 onChange={(e) =>
                   setEditing({
                     ...editing,
-                    verificationStatus: e.target
-                      .value as Question["verificationStatus"],
+                    answerStatus: e.target.value as Question["answerStatus"],
                   })
                 }
               >
                 <option value="needs_review">K ověření</option>
                 <option value="provisional">Pracovní návrh</option>
+                <option value="provisional_ambiguous">
+                  Předběžné · nejednoznačné
+                </option>
                 <option value="verified" disabled={!editing.correctAnswerId}>
                   Posouzeno / lokálně ověřeno
                 </option>
@@ -1678,7 +1671,11 @@ export default function App() {
                 required
                 value={editing.explanation}
                 onChange={(e) =>
-                  setEditing({ ...editing, explanation: e.target.value })
+                  setEditing({
+                    ...editing,
+                    explanation: e.target.value,
+                    answerNote: e.target.value,
+                  })
                 }
               />
             </label>
@@ -1696,6 +1693,22 @@ export default function App() {
               nepřenese.
             </p>
             <button className="primary wide">Uložit lokální změnu</button>
+            {store.overrides[editing.id] && (
+              <button
+                type="button"
+                className="wide"
+                onClick={() => {
+                  setStore((s) => {
+                    const overrides = { ...s.overrides };
+                    delete overrides[editing.id];
+                    return { ...s, overrides };
+                  });
+                  setEditing(null);
+                }}
+              >
+                Obnovit klíč z výchozího JSONu
+              </button>
+            )}
           </form>
         </div>
       )}
@@ -1726,28 +1739,34 @@ function Stat({
 function ResultSummary({ result }: { result: Result }) {
   const s = stats(result.answers);
   return (
-    <div className="stats-grid">
-      <Stat
-        icon={<Target />}
-        value={fmt(s.rate)}
-        label="Úspěšnost dle použitého klíče"
-      />
-      <Stat
-        icon={<Check />}
-        value={String(s.correct)}
-        label="Správných odpovědí"
-      />
-      <Stat
-        icon={<X />}
-        value={String(s.incorrect)}
-        label="Chybných odpovědí"
-        tone="orange"
-      />
-      <Stat
-        icon={<BookOpen />}
-        value={String(result.questions.length - s.graded)}
-        label="Nehodnoceno / nezodpovězeno"
-      />
-    </div>
+    <>
+      <p className="muted">
+        Výsledek vychází z klíče uloženého při zahájení testu. Předběžné
+        odpovědi nejsou oficiálně potvrzené; needs_review se nehodnotí.
+      </p>
+      <div className="stats-grid">
+        <Stat
+          icon={<Target />}
+          value={fmt(s.rate)}
+          label="Úspěšnost dle použitého klíče"
+        />
+        <Stat
+          icon={<Check />}
+          value={String(s.correct)}
+          label="Správných odpovědí"
+        />
+        <Stat
+          icon={<X />}
+          value={String(s.incorrect)}
+          label="Chybných odpovědí"
+          tone="orange"
+        />
+        <Stat
+          icon={<BookOpen />}
+          value={String(result.questions.length - s.graded)}
+          label="Nehodnoceno / nezodpovězeno"
+        />
+      </div>
+    </>
   );
 }

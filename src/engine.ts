@@ -1,5 +1,7 @@
-import raw from "./data/questions.json";
-export type Status = "verified" | "provisional" | "needs_review";
+import raw from "./data/MPC-BEZ_otazky_klic.json";
+import legacy from "./data/questions.json";
+export type Status =
+  "verified" | "provisional" | "provisional_ambiguous" | "needs_review";
 export interface Question {
   id: string;
   originalNumber: number;
@@ -8,13 +10,27 @@ export interface Question {
   correctAnswerId: string | null;
   explanation: string;
   category: string;
-  verificationStatus: Status;
+  answerStatus: Status;
+  answerNote: string;
+  keySource?: "json" | "legacy";
   note?: string;
   expectedTestAnswerId?: string | null;
   reviewedAt?: string;
   sources?: { title: string; url: string }[];
 }
-export const questions: Question[] = raw as Question[];
+// The supplied JSON is authoritative for text, IDs, key and status. The old
+// catalog contributes only topic labels, and supports migration of saved data.
+export const questions: Question[] = raw.questions.map((q) => ({
+  ...q,
+  answerStatus: q.answerStatus as Status,
+  explanation: q.answerNote,
+  category: legacy.find((old) => old.originalNumber === q.originalNumber)!
+    .category,
+  keySource: "json",
+  sources: q.sources.map((url) => ({ title: "Zdroj uvedený v JSON", url })),
+}));
+export const questionNumber = (id: string) =>
+  questions.find((q) => q.id === id)?.originalNumber ?? 0;
 export const categories = [...new Set(questions.map((q) => q.category))];
 export interface Progress {
   questionId: string;
@@ -48,24 +64,24 @@ export interface Result extends Session {
   finishedAt: string;
 }
 export interface Store {
-  version: 1;
+  version: 2;
   progress: Record<string, Progress>;
   answers: Answer[];
   history: Result[];
   active: Session | null;
   overrides: Record<string, Question>;
-  settings: { dark: boolean; shuffle: boolean; excludeUnverified: boolean };
+  settings: { dark: boolean; shuffle: boolean; excludeNeedsReview: boolean };
 }
 export const KEY = "mpc-bez-v1";
 export function fresh(): Store {
   return {
-    version: 1,
+    version: 2,
     progress: {},
     answers: [],
     history: [],
     active: null,
     overrides: {},
-    settings: { dark: false, shuffle: true, excludeUnverified: false },
+    settings: { dark: false, shuffle: true, excludeNeedsReview: false },
   };
 }
 export function shuffle<T>(items: T[], random = Math.random): T[] {
@@ -141,9 +157,6 @@ export function createSession(
       .slice(0, count)
       .map((q) => ({
         ...q,
-        // A historical/test-intent proposal is study material, not a grading key.
-        correctAnswerId:
-          q.verificationStatus === "verified" ? q.correctAnswerId : null,
         options: shuffle(q.options),
       })),
     index: 0,
@@ -172,7 +185,10 @@ export function answer(
   const a: Answer = {
     questionId: q.id,
     answerId,
-    correct: q.correctAnswerId === null ? null : answerId === q.correctAnswerId,
+    correct:
+      q.answerStatus === "needs_review" || q.correctAnswerId === null
+        ? null
+        : answerId === q.correctAnswerId,
     at: now,
     sessionId: s.id,
   };
@@ -230,9 +246,13 @@ export function validQuestion(v: unknown): v is Question {
     !str(v.question) ||
     !str(v.explanation) ||
     !str(v.category) ||
-    !["verified", "provisional", "needs_review"].includes(
-      String(v.verificationStatus),
-    )
+    !str(v.answerNote) ||
+    ![
+      "verified",
+      "provisional",
+      "provisional_ambiguous",
+      "needs_review",
+    ].includes(String(v.answerStatus))
   )
     return false;
   const original = questions.find((q) => q.id === v.id)!;
@@ -249,7 +269,7 @@ export function validQuestion(v: unknown): v is Question {
     ) &&
     (v.correctAnswerId === null ||
       v.options.some((o) => o.id === v.correctAnswerId)) &&
-    (v.verificationStatus !== "verified" || v.correctAnswerId !== null) &&
+    (v.answerStatus !== "verified" || v.correctAnswerId !== null) &&
     (v.note === undefined || str(v.note)) &&
     (v.expectedTestAnswerId === undefined ||
       v.expectedTestAnswerId === null ||
@@ -271,7 +291,9 @@ function validAnswer(v: unknown): v is Answer {
   return (
     object(v) &&
     known(v.questionId) &&
-    ["a", "b", "c"].includes(String(v.answerId)) &&
+    !!questions
+      .find((q) => q.id === v.questionId)
+      ?.options.some((o) => o.id === v.answerId) &&
     (v.correct === null || typeof v.correct === "boolean") &&
     date(v.at) &&
     str(v.sessionId)
@@ -304,17 +326,96 @@ function validSession(v: unknown): v is Session {
       sessionQuestions.some(
         (q: Question) =>
           q.id === a.questionId &&
-          (q.correctAnswerId === null
+          (q.answerStatus === "needs_review" || q.correctAnswerId === null
             ? a.correct === null
             : a.correct === (q.correctAnswerId === a.answerId)),
       ),
   );
 }
+// Migrate IDs without recalculating historical answers or statistics. Text is
+// identical in both catalogs; session snapshots retain the key used at the time.
+function migrate(value: unknown): unknown {
+  if (!object(value) || value.version !== 1) return value;
+  const id = (old: unknown): string => {
+    const q = legacy.find((q) => q.id === old);
+    if (!q) throw Error("Neznámá otázka v původní záloze.");
+    return questions[q.originalNumber - 1].id;
+  };
+  const option = (old: unknown) =>
+    old === null
+      ? null
+      : (({ a: "1", b: "2", c: "3" } as Record<string, string>)[String(old)] ??
+        old);
+  const migrateAnswer = (a: unknown) => {
+    if (!object(a)) throw Error("Neplatná původní odpověď.");
+    return { ...a, questionId: id(a.questionId), answerId: option(a.answerId) };
+  };
+  const migrateQuestion = (q: unknown) => {
+    if (!object(q) || !Array.isArray(q.options))
+      throw Error("Neplatná původní otázka.");
+    const nextId = id(q.id);
+    return {
+      ...q,
+      id: nextId,
+      options: q.options.map((o) =>
+        object(o) ? { ...o, id: option(o.id) } : o,
+      ),
+      correctAnswerId: option(q.correctAnswerId),
+      expectedTestAnswerId:
+        q.expectedTestAnswerId === undefined
+          ? undefined
+          : option(q.expectedTestAnswerId),
+      answerStatus: q.verificationStatus,
+      answerNote: str(q.explanation) ? q.explanation : "",
+      keySource: "legacy",
+    };
+  };
+  const migrateSession = (s: unknown) => {
+    if (!object(s) || !Array.isArray(s.questions) || !Array.isArray(s.answers))
+      throw Error("Neplatný původní test.");
+    return {
+      ...s,
+      questions: s.questions.map(migrateQuestion),
+      answers: s.answers.map(migrateAnswer),
+    };
+  };
+  if (
+    !object(value.progress) ||
+    !object(value.overrides) ||
+    !object(value.settings) ||
+    !Array.isArray(value.answers) ||
+    !Array.isArray(value.history)
+  )
+    return value;
+  return {
+    ...value,
+    version: 2,
+    progress: Object.fromEntries(
+      Object.entries(value.progress).map(([key, p]) => [
+        id(key),
+        object(p) ? { ...p, questionId: id(p.questionId) } : p,
+      ]),
+    ),
+    overrides: Object.fromEntries(
+      Object.entries(value.overrides).map(([key, q]) => [
+        id(key),
+        migrateQuestion(q),
+      ]),
+    ),
+    answers: value.answers.map(migrateAnswer),
+    history: value.history.map(migrateSession),
+    active: value.active === null ? null : migrateSession(value.active),
+    settings: {
+      ...value.settings,
+      excludeNeedsReview: value.settings.excludeUnverified,
+    },
+  };
+}
 export function parseStore(text: string): Store {
-  const v: unknown = JSON.parse(text);
+  const v: unknown = migrate(JSON.parse(text));
   if (
     !object(v) ||
-    v.version !== 1 ||
+    v.version !== 2 ||
     !object(v.progress) ||
     !object(v.overrides) ||
     !Array.isArray(v.answers) ||
@@ -329,7 +430,7 @@ export function parseStore(text: string): Store {
     throw Error("Neplatná struktura nebo verze zálohy.");
   const settings = v.settings;
   if (
-    !["dark", "shuffle", "excludeUnverified"].every(
+    !["dark", "shuffle", "excludeNeedsReview"].every(
       (k) => typeof settings[k] === "boolean",
     )
   )

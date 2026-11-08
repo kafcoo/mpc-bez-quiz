@@ -84,7 +84,7 @@ test("přehled, lokální klíč, filtr, export a bezpečný import", async ({
   await page.getByRole("button", { name: "Upravit lokální klíč" }).click();
   await page
     .getByRole("combobox", { name: "Správná odpověď", exact: true })
-    .selectOption("b");
+    .selectOption("2");
   await page.getByLabel("Stav ověření").selectOption("verified");
   await page.getByRole("button", { name: "Uložit lokální změnu" }).click();
   await expect(page.locator(".key-correct")).toContainText("lze použít");
@@ -124,9 +124,9 @@ test("kompletní test respektuje filtr, dostupnost a rozložení", async ({
     ),
   ).toBe(false);
   await page.getByRole("button", { name: /62 otázek Kompletní test/ }).click();
-  await page.getByLabel("Pouze odborně posouzené odpovědi").check();
+  await page.getByLabel("Vynechat otázky k ověření (needs_review)").check();
   await page.getByRole("button", { name: "Spustit procvičování" }).click();
-  await expect(page.locator(".quiz-progress")).toContainText("z 47");
+  await expect(page.locator(".quiz-progress")).toContainText("z 61");
   await page.getByRole("button", { name: "Označit jako obtížnou" }).click();
   await expect(
     page.getByRole("button", { name: "Označit jako obtížnou" }),
@@ -168,30 +168,45 @@ test("všech 62 otázek, tmavý režim, potvrzený reset a fokus dialogu", async
   expect(state.settings.dark).toBe(true);
 });
 
-test("historický návrh má zdroj a nepřidá správnou ani chybnou odpověď", async ({
+test("needs_review se nehodnotí a zůstane nehodnocené po obnovení", async ({
   page,
 }) => {
-  await group(page, 19, 19);
+  await group(page, 7, 7);
   await page.locator(".answer").first().click();
   await expect(page.getByText("Uloženo bez hodnocení")).toBeVisible();
   await expect(page.locator(".answer.correct")).toHaveCount(0);
-  await expect(page.locator(".question-sources")).toContainText("ČAS");
-  await expect(page.locator(".audit-intent")).toContainText(
-    "původní možnost A",
+  await expect(page.locator(".question-sources")).toContainText(
+    "Zdroj uvedený v JSON",
   );
   const state = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("mpc-bez-v1")!),
   );
   expect(state.answers[0].correct).toBeNull();
-  expect(state.progress.q19.attempts).toBe(0);
+  expect(state.progress["bez-07"].attempts).toBe(0);
   await page.reload();
   await page.getByRole("button", { name: "Pokračovat v testu" }).click();
   await expect(page.getByText("Uloženo bez hodnocení")).toBeVisible();
+});
+test("předběžný klíč jde opravit a nové hodnocení používá ID druhé možnosti", async ({
+  page,
+}) => {
   await nav(page, "Přehled otázek").click();
-  await page.getByLabel("Vyhledat otázku").fill("Nepřenosné spotřebiče");
-  await page.getByRole("button", { name: "Ukázat odpovědi" }).click();
-  await expect(page.locator(".key-provisional")).toContainText(
-    "spolu s elektrickou instalací",
+  await page.getByLabel("Vyhledat otázku").fill("Automatické odpojení");
+  await page.getByRole("button", { name: "Upravit lokální klíč" }).click();
+  await page
+    .getByRole("combobox", { name: "Správná odpověď", exact: true })
+    .selectOption("2");
+  await page.getByRole("button", { name: "Uložit lokální změnu" }).click();
+  await nav(page, "Přehled").click();
+  await group(page, 1, 1);
+  await page
+    .getByRole("button", { name: /v případě přetížení zařízení/ })
+    .click();
+  await expect(page.getByText("Správná odpověď podle klíče")).toBeVisible();
+  await expect(page.locator(".quiz-note")).toContainText("předběžného");
+  const state = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("mpc-bez-v1")!),
   );
-  await expect(page.locator(".key-correct")).toHaveCount(0);
+  expect(state.answers[0].answerId).toBe("2");
+  expect(state.answers[0].correct).toBe(true);
 });

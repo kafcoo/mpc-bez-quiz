@@ -1,0 +1,1439 @@
+{
+  "title": "MPC-BEZ – Seznam otázek ke kontrolnímu testu",
+  "source": "Otázky KT - seznam 2022.pdf",
+  "sourceYear": 2022,
+  "questionCount": 62,
+  "answerKeyPolicy": "V původním PDF jsou ve všech 62 otázkách správně vypadající možnosti na prvním místě. Jde o pracovní klíč, nikoli o oficiálně potvrzené odpovědi. Otázka 7 nemá jednoznačně správnou nabídnutou možnost.",
+  "questions": [
+    {
+      "id": "bez-01",
+      "originalNumber": 1,
+      "question": "Automatické odpojení od zdroje odpojí zařízení",
+      "options": [
+        {
+          "id": "1",
+          "text": "v případě poruchy zařízení"
+        },
+        {
+          "id": "2",
+          "text": "v případě přetížení zařízení"
+        },
+        {
+          "id": "3",
+          "text": "v případě přepětí v síti"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-02",
+      "originalNumber": 2,
+      "question": "Bezpečnostní barva signalizující mimořádný stav je",
+      "options": [
+        {
+          "id": "1",
+          "text": "žlutá"
+        },
+        {
+          "id": "2",
+          "text": "červená"
+        },
+        {
+          "id": "3",
+          "text": "modrá"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-03",
+      "originalNumber": 3,
+      "question": "Bezpečnostní barva signalizující nouzový stav je",
+      "options": [
+        {
+          "id": "1",
+          "text": "červená"
+        },
+        {
+          "id": "2",
+          "text": "žlutá"
+        },
+        {
+          "id": "3",
+          "text": "oranžová"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-04",
+      "originalNumber": 4,
+      "question": "Bezpečnostní barva vyznačující normální (bezpečný) stav je",
+      "options": [
+        {
+          "id": "1",
+          "text": "zelená"
+        },
+        {
+          "id": "2",
+          "text": "žlutá"
+        },
+        {
+          "id": "3",
+          "text": "modrá"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-05",
+      "originalNumber": 5,
+      "question": "Bezpečný výrobek je ten, který za podmínek užití a po dobu stanovené nebo obvyklé použitelnosti",
+      "options": [
+        {
+          "id": "1",
+          "text": "nepředstavuje žádné nebo jen minimální nebezpečí při správném užívání"
+        },
+        {
+          "id": "2",
+          "text": "nepředstavuje žádné nebezpečí při jakémkoliv užívání"
+        },
+        {
+          "id": "3",
+          "text": "nepředstavuje nebezpečí při správném užívání"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-06",
+      "originalNumber": 6,
+      "question": "Co znamená ochrana SELV a PELV?",
+      "options": [
+        {
+          "id": "1",
+          "text": "ochrana malým napětím"
+        },
+        {
+          "id": "2",
+          "text": "ochrana napětím do 25V~"
+        },
+        {
+          "id": "3",
+          "text": "ochrana napětím do 60V="
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-07",
+      "originalNumber": 7,
+      "question": "Doplňující pospojování neživých částí do 1000 V",
+      "options": [
+        {
+          "id": "1",
+          "text": "se používá ke zlepšení ochrany základní"
+        },
+        {
+          "id": "2",
+          "text": "lze použít ve výjimečných případech jako ochranu základní"
+        },
+        {
+          "id": "3",
+          "text": "je opatřením k dosažení správného působení chrániče"
+        }
+      ],
+      "correctAnswerId": null,
+      "answerStatus": "needs_review",
+      "answerNote": "První možnost uvádí základní ochranu; podle ČSN 33 2000-4-41 ed.3 doplňující ochranné pospojování doplňuje ochranu při poruše. Žádná možnost není přesná.",
+      "sources": [
+        "https://www.elektrosvaz.cz/userFiles/rt/rt-prezentace/prezentace2024/1_rt2_ochrana_pred_urazem_el_proudem_2024_4.pdf"
+      ]
+    },
+    {
+      "id": "bez-08",
+      "originalNumber": 8,
+      "question": "Elektrická síť, ve které je určitý bod pracovního obvodu bezprostředně uzemněn se nazývá",
+      "options": [
+        {
+          "id": "1",
+          "text": "TN"
+        },
+        {
+          "id": "2",
+          "text": "IT"
+        },
+        {
+          "id": "3",
+          "text": "TS"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous",
+      "answerNote": "Síť TN má přímo uzemněný bod zdroje, ale stejně jej má i TT, kterou seznam nenabízí. Z daných možností TN.",
+      "sources": []
+    },
+    {
+      "id": "bez-09",
+      "originalNumber": 9,
+      "question": "Elektrická zařízení s pohyblivým přívodem při přemísťování",
+      "options": [
+        {
+          "id": "1",
+          "text": "musí být odpojena, nejsou-li upravena pro přemisťování pod napětím"
+        },
+        {
+          "id": "2",
+          "text": "musí být vždy odpojena"
+        },
+        {
+          "id": "3",
+          "text": "musí být odpojena, jestliže představují riziko ohrožení života a zdraví"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-10",
+      "originalNumber": 10,
+      "question": "Elektrické instalace ohrožující život nebo zdraví",
+      "options": [
+        {
+          "id": "1",
+          "text": "musí být bez zbytečného odkladu odpojeny a zajištěny"
+        },
+        {
+          "id": "2",
+          "text": "mohou být po nezbytně nutnou dobu provozovány avšak vybaveny výstražnými tabulkami"
+        },
+        {
+          "id": "3",
+          "text": "mohou být po nezbytně nutnou dobu provozovány avšak obsluhován pouze kvalifikovanou osobou schopnou vyhodnotit možná rizika"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-11",
+      "originalNumber": 11,
+      "question": "Jmenovité napětí trojfázové rozvodné sítě nn v ČR je",
+      "options": [
+        {
+          "id": "1",
+          "text": "230/400 V"
+        },
+        {
+          "id": "2",
+          "text": "240/420 V"
+        },
+        {
+          "id": "3",
+          "text": "220/380 V"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-12",
+      "originalNumber": 12,
+      "question": "Kontrolu elektrického spotřebiče provádí uživatel",
+      "options": [
+        {
+          "id": "1",
+          "text": "vždy před použitím"
+        },
+        {
+          "id": "2",
+          "text": "v pravidelných intervalech stanovených normou"
+        },
+        {
+          "id": "3",
+          "text": "minimálně jedenkrát měsíčně"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-13",
+      "originalNumber": 13,
+      "question": "Kvalifikační stupeň podle §6 NV 194/2022 Sb. mají osoby znalé:",
+      "options": [
+        {
+          "id": "1",
+          "text": "pro samostatnou činnost"
+        },
+        {
+          "id": "2",
+          "text": "pro činnost prováděnou dodavatelsky"
+        },
+        {
+          "id": "3",
+          "text": "pro řízení činnosti"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-14",
+      "originalNumber": 14,
+      "question": "Meze bezpečných malých napětí v prostorách suchých, dochází-li jen k dotyku neživých částí (krytu), jsou:",
+      "options": [
+        {
+          "id": "1",
+          "text": "do 50 Vac, 120 Vdc"
+        },
+        {
+          "id": "2",
+          "text": "do 60 Vac, 100 Vdc"
+        },
+        {
+          "id": "3",
+          "text": "do 25 Vac, 60 Vdc"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous",
+      "answerNote": "Číselné meze závisejí na normě a druhu ochrany; ověřit přesnou definici uváděnou na přednášce.",
+      "sources": []
+    },
+    {
+      "id": "bez-15",
+      "originalNumber": 15,
+      "question": "Minimální průřez PEN vodiče je",
+      "options": [
+        {
+          "id": "1",
+          "text": "10 mm2 Cu, 16 mm2 Al"
+        },
+        {
+          "id": "2",
+          "text": "6 mm2 Cu, 10 mm2 Al"
+        },
+        {
+          "id": "3",
+          "text": "16mm2 Cu, 25 mm2 Al"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-16",
+      "originalNumber": 16,
+      "question": "Může být obvod PELV spojen se zemí?",
+      "options": [
+        {
+          "id": "1",
+          "text": "ano"
+        },
+        {
+          "id": "2",
+          "text": "jen za podmínky, že je uzemněn transformátor"
+        },
+        {
+          "id": "3",
+          "text": "ne"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-17",
+      "originalNumber": 17,
+      "question": "Na EZ nn bez napětí smí pracovat pracovník s kvalifikací",
+      "options": [
+        {
+          "id": "1",
+          "text": "osoby poučené podle pokynů"
+        },
+        {
+          "id": "2",
+          "text": "osoby znalé pro samostatnou činnost s dohledem"
+        },
+        {
+          "id": "3",
+          "text": "osoby poučené samostatně"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous",
+      "answerNote": "Oprávnění osob poučených závisí na druhu práce a podmínkách, ověřit školní klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-18",
+      "originalNumber": 18,
+      "question": "Nebezpečný výrobek je výrobek, který",
+      "options": [
+        {
+          "id": "1",
+          "text": "nevyhovuje požadavkům na bezpečný výrobek"
+        },
+        {
+          "id": "2",
+          "text": "za podmínek užití a po dobu stanovené nebo obvyklé použitelnosti představuje byť jen minimální nebezpečí"
+        },
+        {
+          "id": "3",
+          "text": "za podmínek užití a po dobu stanovené nebo obvyklé použitelnosti představuje riziko pro bezpečnost a zdraví osob"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-19",
+      "originalNumber": 19,
+      "question": "Nepřenosné spotřebiče jsou revidovány",
+      "options": [
+        {
+          "id": "1",
+          "text": "spolu s elektrickou instalací"
+        },
+        {
+          "id": "2",
+          "text": "ve stejných lhůtách jako přenosné spotřebiče"
+        },
+        {
+          "id": "3",
+          "text": "ve lhůtách stanovených místním technickým předpisem"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous",
+      "answerNote": "Režim revizí nepřenosných spotřebičů se může lišit podle jejich zařazení a platných předpisů.",
+      "sources": []
+    },
+    {
+      "id": "bez-20",
+      "originalNumber": 20,
+      "question": "Obvody SELV:",
+      "options": [
+        {
+          "id": "1",
+          "text": "mezi živými části a zemí musí být základní izolace"
+        },
+        {
+          "id": "2",
+          "text": "živé části musí být uzemněné"
+        },
+        {
+          "id": "3",
+          "text": "mezi živými částmi a zemí musí být dvojitá či zesílená izolace"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous",
+      "answerNote": "Znění o izolaci živých částí SELV vůči zemi vyžaduje přesnou kontrolu podle relevantního článku normy.",
+      "sources": []
+    },
+    {
+      "id": "bez-21",
+      "originalNumber": 21,
+      "question": "Odpor uzemnění uzlu zdroje nemá být větší než",
+      "options": [
+        {
+          "id": "1",
+          "text": "5 Ohmů, ve ztížených podmínkách nejvýše 15 Ohmů"
+        },
+        {
+          "id": "2",
+          "text": "2 Ohmy"
+        },
+        {
+          "id": "3",
+          "text": "20 Ohmů"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous",
+      "answerNote": "Hodnota uzemnění uzlu zdroje není univerzální pro každou síť; ověřit normu a kontext.",
+      "sources": []
+    },
+    {
+      "id": "bez-22",
+      "originalNumber": 22,
+      "question": "Ochrana automatickým odpojením od zdroje vyžaduje",
+      "options": [
+        {
+          "id": "1",
+          "text": "koordinaci způsobu uzemnění sítě a charakteristik ochranných přístrojů"
+        },
+        {
+          "id": "2",
+          "text": "koordinaci způsobu uzemnění sítě a odporů ochranných vodičů"
+        },
+        {
+          "id": "3",
+          "text": "pouze spojení neživých částí s uzemněním sítě pomocí ochranných vodičů"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-23",
+      "originalNumber": 23,
+      "question": "Ochranný vodič PE",
+      "options": [
+        {
+          "id": "1",
+          "text": "může být i holý a nemusí být veden ve společné trase s krajními vodiči"
+        },
+        {
+          "id": "2",
+          "text": "musí být izolovaný a nemusí být veden ve společné trase s krajními vodiči"
+        },
+        {
+          "id": "3",
+          "text": "může být i holý a musí být veden ve společné trase s krajními vodiči"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous",
+      "answerNote": "Požadavky na společnou trasu PE s pracovními vodiči mají podmínky; ověřit podle konkrétního typu obvodu a normy.",
+      "sources": []
+    },
+    {
+      "id": "bez-24",
+      "originalNumber": 24,
+      "question": "Osoba poučená pracovat v blízkosti nekrytých částí EZ vn pod napětím",
+      "options": [
+        {
+          "id": "1",
+          "text": "smí, pod dozorem osoby znalé"
+        },
+        {
+          "id": "2",
+          "text": "nesmí"
+        },
+        {
+          "id": "3",
+          "text": "smí, s dohledem osoby znalé"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous",
+      "answerNote": "Kvalifikace, dohled a dozor v blízkosti VN podle aktuálních předpisů vyžadují kontext.",
+      "sources": []
+    },
+    {
+      "id": "bez-25",
+      "originalNumber": 25,
+      "question": "Osoby poučené mohou pracovat v blízkosti nekrytých částí nn pod napětím:",
+      "options": [
+        {
+          "id": "1",
+          "text": "s dohledem osoby znalé"
+        },
+        {
+          "id": "2",
+          "text": "samostatně"
+        },
+        {
+          "id": "3",
+          "text": "ve vzdálenosti nejméně 10 cm"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous",
+      "answerNote": "Podmínky práce poučené osoby v blízkosti živých částí nn vyžadují detailní ověření.",
+      "sources": []
+    },
+    {
+      "id": "bez-26",
+      "originalNumber": 26,
+      "question": "Osoby znalé mohou pracovat na zařízeních nn v blízkosti živých částí pod napětím:",
+      "options": [
+        {
+          "id": "1",
+          "text": "samostatně"
+        },
+        {
+          "id": "2",
+          "text": "s dohledem osoby znalé pro řízení činnosti"
+        },
+        {
+          "id": "3",
+          "text": "samostatně, pokud mají praxi delší než tři roky"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-27",
+      "originalNumber": 27,
+      "question": "Písmenné označení svorek pro připojení fázových vodičů je",
+      "options": [
+        {
+          "id": "1",
+          "text": "U, V, W"
+        },
+        {
+          "id": "2",
+          "text": "X, Y, Z"
+        },
+        {
+          "id": "3",
+          "text": "A, B, C"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-28",
+      "originalNumber": 28,
+      "question": "Plynové potrubí se jako náhodný ochranný vodič",
+      "options": [
+        {
+          "id": "1",
+          "text": "nesmí použít"
+        },
+        {
+          "id": "2",
+          "text": "může použít, pokud je kovové se svařovanými spoji"
+        },
+        {
+          "id": "3",
+          "text": "může použít, pokud je jeho celkový odpor menší než 2 Ohmy"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-29",
+      "originalNumber": 29,
+      "question": "Práce je taková činnost na EZ, kdy",
+      "options": [
+        {
+          "id": "1",
+          "text": "pracovník používá nástrojů a může přijít do styku s živými částmi"
+        },
+        {
+          "id": "2",
+          "text": "pracovník nepoužívá nástrojů a nemůže přijít do styku s živými částmi"
+        },
+        {
+          "id": "3",
+          "text": "pracovník smí vykonávat pouze činnost danou návodem k použití daného zařízení"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-30",
+      "originalNumber": 30,
+      "question": "Práce na EZ pod napětím (PPN) je zakázána",
+      "options": [
+        {
+          "id": "1",
+          "text": "v provozech těsných a horkých"
+        },
+        {
+          "id": "2",
+          "text": "v prostorách vlhkých, pokud není vykonávána osobami znalými"
+        },
+        {
+          "id": "3",
+          "text": "pro napětí nad 22 kV"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous",
+      "answerNote": "Podmínky pro PPN jsou specifičtější než uvedené obecné znění.",
+      "sources": []
+    },
+    {
+      "id": "bez-31",
+      "originalNumber": 31,
+      "question": "Práce na EZ vn nebo vvn v blízkosti částí pod napětím při dodržení minimální předepsané vzdálenosti smí vykonávat",
+      "options": [
+        {
+          "id": "1",
+          "text": "pracovník znalý s vyšší kvalifikací samostatně"
+        },
+        {
+          "id": "2",
+          "text": "pracovník znalý samostatně"
+        },
+        {
+          "id": "3",
+          "text": "pracovník znalý podle pokynů pracovníka znalého s vyšší kvalifikací"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous",
+      "answerNote": "Starší kvalifikační terminologie; ověřit podle aktuálního právního a normativního rámce.",
+      "sources": []
+    },
+    {
+      "id": "bez-32",
+      "originalNumber": 32,
+      "question": "Práce pod napětím (PPN) jsou práce na EZ, při nichž se pracovníci dotýkají živých částí pod napětím",
+      "options": [
+        {
+          "id": "1",
+          "text": "přímo nebo předepsanými pracovními pomůckami za současného použití předepsaných ochranných pomůcek"
+        },
+        {
+          "id": "2",
+          "text": "pouze pracovními pomůckami"
+        },
+        {
+          "id": "3",
+          "text": "přímo nebo předepsanými pracovními pomůckami bez použití předepsaných ochranných pomůcek"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-33",
+      "originalNumber": 33,
+      "question": "Práce podle pokynů je práce",
+      "options": [
+        {
+          "id": "1",
+          "text": "pro kterou jsou dány nejnutnější pokyny"
+        },
+        {
+          "id": "2",
+          "text": "která se provádí podle podrobných pokynů"
+        },
+        {
+          "id": "3",
+          "text": "pro kterou je nutno zadat pokyny písemnou formou"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-34",
+      "originalNumber": 34,
+      "question": "Práci na EZ nn v blízkosti napětí smí vykonávat",
+      "options": [
+        {
+          "id": "1",
+          "text": "osoba znalá samostatně i ve vzdálenosti menší než 20 cm od živých částí pod napětím"
+        },
+        {
+          "id": "2",
+          "text": "osoba poučená samostatně až do vzdálenosti 20 cm od živých částí pod napětím"
+        },
+        {
+          "id": "3",
+          "text": "osoba seznámená pod dohledem nebo dozorem až do vzdálenosti 20 cm od živých částí pod napětím"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous",
+      "answerNote": "Konkrétní vzdálenosti nelze použít jako univerzální návod bez vyhodnocení rizik.",
+      "sources": []
+    },
+    {
+      "id": "bez-35",
+      "originalNumber": 35,
+      "question": "Pracovník, který obdrží příkaz odporující bezpečnostním normám, předpisům a směrnicím",
+      "options": [
+        {
+          "id": "1",
+          "text": "jej nesmí vykonat"
+        },
+        {
+          "id": "2",
+          "text": "jej může vykonat na vlastní nebezpečí"
+        },
+        {
+          "id": "3",
+          "text": "jej musí vykonat jen na písemný příkaz vedoucího práce"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-36",
+      "originalNumber": 36,
+      "question": "Pravidelná revize elektrické instalace",
+      "options": [
+        {
+          "id": "1",
+          "text": "zahrnuje proceduru obdobnou jako při výchozí revizi a navíc má odhalit odchylky a závady zapříčiňující zvýšené riziko"
+        },
+        {
+          "id": "2",
+          "text": "zahrnuje proceduru shodnou jako při výchozí revizi"
+        },
+        {
+          "id": "3",
+          "text": "se provádí v rozsahu podle stavu a opotřebení instalace"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-37",
+      "originalNumber": 37,
+      "question": "Pro ochranu omezením ustáleného dotykového proudu a energie nesmí proud tekoucí odporem 2000 Ohmů mezi částmi současně přístupnými dotyku překročit hodnoty:",
+      "options": [
+        {
+          "id": "1",
+          "text": "3,5 mA~ nebo 10 mA="
+        },
+        {
+          "id": "2",
+          "text": "5 mA~ nebo 15 mA="
+        },
+        {
+          "id": "3",
+          "text": "10 mA~ nebo 20 mA="
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous",
+      "answerNote": "Číselný limit vyžaduje ověření vztahu k konkrétnímu ochrannému opatření a normě.",
+      "sources": []
+    },
+    {
+      "id": "bez-38",
+      "originalNumber": 38,
+      "question": "Prodlužovací přívod sloužící k prodloužení jednofázového rozvodu z pevné zásuvky musí být",
+      "options": [
+        {
+          "id": "1",
+          "text": "vždy s ochranným vodičem, se zástrčkou i zásuvkou vybavenými ochranným kontaktem"
+        },
+        {
+          "id": "2",
+          "text": "s ochranným vodičem, pro připojení přenosných svítidel může být i bez ochranného vodiče"
+        },
+        {
+          "id": "3",
+          "text": "s ochranným vodičem, přičemž v pohyblivé zásuvce se provede propojení ochranného kolíku s pravou zdířkou"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-39",
+      "originalNumber": 39,
+      "question": "První číslice u označení stupně krytí IP udává též:",
+      "options": [
+        {
+          "id": "1",
+          "text": "stupeň ochrany osob před dotykem nebezpečných částí uvnitř zařízení"
+        },
+        {
+          "id": "2",
+          "text": "stupeň ochrany zařízení proti vniknutí vody"
+        },
+        {
+          "id": "3",
+          "text": "stupeň ochrany před úrazem elektrickým proudem"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-40",
+      "originalNumber": 40,
+      "question": "Před použitím ochranných pomůcek je pracovník povinen",
+      "options": [
+        {
+          "id": "1",
+          "text": "přesvědčit se o jejich řádném stavu"
+        },
+        {
+          "id": "2",
+          "text": "přečíst si návod k použití"
+        },
+        {
+          "id": "3",
+          "text": "oznámit jejich použití vedoucímu práce"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-41",
+      "originalNumber": 41,
+      "question": "Při ochraně elektrickým oddělením musí být chráněný obvod napájen",
+      "options": [
+        {
+          "id": "1",
+          "text": "oddělovacím transformátorem"
+        },
+        {
+          "id": "2",
+          "text": "autotransformátorem se zesílenou izolací"
+        },
+        {
+          "id": "3",
+          "text": "akumulátorem"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-42",
+      "originalNumber": 42,
+      "question": "Při práci podle pokynů odpovídá za dodržování bezpečnostních předpisů",
+      "options": [
+        {
+          "id": "1",
+          "text": "pracující"
+        },
+        {
+          "id": "2",
+          "text": "ten, kdo práci zadal"
+        },
+        {
+          "id": "3",
+          "text": "vedoucí práce"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-43",
+      "originalNumber": 43,
+      "question": "Přídavná izolace je",
+      "options": [
+        {
+          "id": "1",
+          "text": "samostatná izolace používaná navíc k izolaci základní"
+        },
+        {
+          "id": "2",
+          "text": "součást zesílené izolace"
+        },
+        {
+          "id": "3",
+          "text": "samostatná izolace používaná navíc k izolaci zesílené"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-44",
+      "originalNumber": 44,
+      "question": "Příkazové značky mají tvar",
+      "options": [
+        {
+          "id": "1",
+          "text": "modrého kruhu s bílým piktogramem přikázané činnosti"
+        },
+        {
+          "id": "2",
+          "text": "zeleného kruhu s bílým piktogramem přikázané činnosti"
+        },
+        {
+          "id": "3",
+          "text": "žlutého kruhu s černým piktogramem přikázané činnosti"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-45",
+      "originalNumber": 45,
+      "question": "Střední vodič stejnosměrné soustavy se označuje:",
+      "options": [
+        {
+          "id": "1",
+          "text": "M"
+        },
+        {
+          "id": "2",
+          "text": "N"
+        },
+        {
+          "id": "3",
+          "text": "-DC"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-46",
+      "originalNumber": 46,
+      "question": "Stupeň ochrany IP X4 udává",
+      "options": [
+        {
+          "id": "1",
+          "text": "ochranu proti stříkající vodě"
+        },
+        {
+          "id": "2",
+          "text": "ochranu proti tryskající vodě"
+        },
+        {
+          "id": "3",
+          "text": "ochranu před deštěm"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-47",
+      "originalNumber": 47,
+      "question": "Svorka ochranného vodiče se na elektrickém předmětu značí",
+      "options": [
+        {
+          "id": "1",
+          "text": "PE"
+        },
+        {
+          "id": "2",
+          "text": "PEN"
+        },
+        {
+          "id": "3",
+          "text": "N"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-48",
+      "originalNumber": 48,
+      "question": "Technické požadavky na stanovené výrobky jsou obsaženy v příslušných:",
+      "options": [
+        {
+          "id": "1",
+          "text": "nařízeních vlády"
+        },
+        {
+          "id": "2",
+          "text": "v zákoně č. 22/1997 Sb. v platném znění"
+        },
+        {
+          "id": "3",
+          "text": "v českých technických normách"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-49",
+      "originalNumber": 49,
+      "question": "Technickým předpisem se přebírají do legislativy ČR",
+      "options": [
+        {
+          "id": "1",
+          "text": "směrnice (direktivy) Evropských společenství"
+        },
+        {
+          "id": "2",
+          "text": "nařízení Evropských společenství"
+        },
+        {
+          "id": "3",
+          "text": "rozhodnutí Evropských společenství"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-50",
+      "originalNumber": 50,
+      "question": "V síti TN-C vodič PEN",
+      "options": [
+        {
+          "id": "1",
+          "text": "nesmí být odpojován ani spínán"
+        },
+        {
+          "id": "2",
+          "text": "může být odpojován a spínán"
+        },
+        {
+          "id": "3",
+          "text": "musí být samostatně jištěn"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-51",
+      "originalNumber": 51,
+      "question": "V síti TT se neživé části elektrických zařízení",
+      "options": [
+        {
+          "id": "1",
+          "text": "nesmějí připojovat na nulový vodič"
+        },
+        {
+          "id": "2",
+          "text": "musí připojovat na vodič PEN"
+        },
+        {
+          "id": "3",
+          "text": "musí připojovat na nulový vodič"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-52",
+      "originalNumber": 52,
+      "question": "Vidlice a zásuvky SELV a PELV obvodů",
+      "options": [
+        {
+          "id": "1",
+          "text": "musí být nezáměnné s obvody jiných napětí"
+        },
+        {
+          "id": "2",
+          "text": "musí mít kontakt pro ochranný vodič"
+        },
+        {
+          "id": "3",
+          "text": "musí být barevně rozlišitelné"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-53",
+      "originalNumber": 53,
+      "question": "Vyhrazená barva pro nulový vodič trojfázové rozvodné sítě je",
+      "options": [
+        {
+          "id": "1",
+          "text": "světle modrá"
+        },
+        {
+          "id": "2",
+          "text": "tmavě modrá"
+        },
+        {
+          "id": "3",
+          "text": "zelená"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-54",
+      "originalNumber": 54,
+      "question": "Vyhrazená barva pro ochranný vodič PE trojfázové rozvodné sítě je",
+      "options": [
+        {
+          "id": "1",
+          "text": "kombinace barev zelená/žlutá"
+        },
+        {
+          "id": "2",
+          "text": "zelená"
+        },
+        {
+          "id": "3",
+          "text": "kombinace barev zelená/žlutá po celé délce a na koncích světle modrá"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-55",
+      "originalNumber": 55,
+      "question": "Vyhrazená barva pro PEN vodič trojfázové rozvodné sítě je",
+      "options": [
+        {
+          "id": "1",
+          "text": "kombinace barev zelená/žlutá po celé délce a na koncích světle modrá"
+        },
+        {
+          "id": "2",
+          "text": "kombinace barev zelená/modrá"
+        },
+        {
+          "id": "3",
+          "text": "zelená"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-56",
+      "originalNumber": 56,
+      "question": "Vyhrazené barvy pro fázové vodiče trojfázové rozvodné sítě jsou",
+      "options": [
+        {
+          "id": "1",
+          "text": "černá, hnědá, šedá"
+        },
+        {
+          "id": "2",
+          "text": "černá, hnědá, světle modrá"
+        },
+        {
+          "id": "3",
+          "text": "pouze hnědá a šedá"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-57",
+      "originalNumber": 57,
+      "question": "Výchozí revize elektrické instalace zahrnuje",
+      "options": [
+        {
+          "id": "1",
+          "text": "prohlídku, zkoušení a vypracování zprávy"
+        },
+        {
+          "id": "2",
+          "text": "prohlídku, měření a zkoušení"
+        },
+        {
+          "id": "3",
+          "text": "prohlídku, kontrolu provedení a zkoušení"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-58",
+      "originalNumber": 58,
+      "question": "Výstražné značky mají tvar",
+      "options": [
+        {
+          "id": "1",
+          "text": "žlutého černě orámovaného trojúhelníka"
+        },
+        {
+          "id": "2",
+          "text": "modrého kruhu"
+        },
+        {
+          "id": "3",
+          "text": "bílého červeně orámovaného kruhu"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-59",
+      "originalNumber": 59,
+      "question": "Za bezpečná střídavá dotyková napětí se v prostředí suchém považují nejvýše následující napětí:",
+      "options": [
+        {
+          "id": "1",
+          "text": "25 V trvale, 50 V krátkodobě"
+        },
+        {
+          "id": "2",
+          "text": "12 V trvale, 25 V krátkodobě"
+        },
+        {
+          "id": "3",
+          "text": "60 V trvale, 120 V krátkodobě"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous",
+      "answerNote": "Údaj 25 V trvale/50 V krátkodobě může záviset na definici bezpečného dotykového napětí a délce působení.",
+      "sources": []
+    },
+    {
+      "id": "bez-60",
+      "originalNumber": 60,
+      "question": "Za práci na EZ bez napětí se považuje práce na části zařízení, která je od živých částí oddělena krytem",
+      "options": [
+        {
+          "id": "1",
+          "text": "chránícím před úmyslným dotykem"
+        },
+        {
+          "id": "2",
+          "text": "chránícím před nahodilým dotykem"
+        },
+        {
+          "id": "3",
+          "text": "chránícím před nahodilým dotykem, přičemž kryt musí být z izolantu"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous",
+      "answerNote": "Testová formulace o práci bez napětí za krytem je potřeba porovnat s definicí práce na zařízení bez napětí.",
+      "sources": []
+    },
+    {
+      "id": "bez-61",
+      "originalNumber": 61,
+      "question": "Zákazové značky mají tvar",
+      "options": [
+        {
+          "id": "1",
+          "text": "bílého červeně orámovaného kruhu"
+        },
+        {
+          "id": "2",
+          "text": "žlutého černě orámovaného trojúhelníka"
+        },
+        {
+          "id": "3",
+          "text": "modrého kruhu"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional",
+      "answerNote": "Předpokládaná správná možnost je první v PDF; nebyl poskytnut oficiální klíč.",
+      "sources": []
+    },
+    {
+      "id": "bez-62",
+      "originalNumber": 62,
+      "question": "Zaměstnavatel stanovuje termíny a rozsah kontrol, zkoušek a revizí technického vybavení pracoviště",
+      "options": [
+        {
+          "id": "1",
+          "text": "povinně ze zákona"
+        },
+        {
+          "id": "2",
+          "text": "podle výsledků vyhodnocení rizik ohrožení života a zdraví"
+        },
+        {
+          "id": "3",
+          "text": "podle stavu zařízení zjištěného při údržbě"
+        }
+      ],
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous",
+      "answerNote": "První možnost potvrzuje zákonnou povinnost (NV 101/2005 Sb., §3 odst. 4), ale stanovení termínů současně vyžaduje zohlednění rizik a dalších faktorů. Druhá možnost může být interpretována jako část správné odpovědi.",
+      "sources": [
+        "https://e-sbirka.gov.cz/sb/2005/101"
+      ]
+    }
+  ]
+}

@@ -25,29 +25,25 @@ Aplikace běží na http://127.0.0.1:5173. Pro ověření produkční verze spus
 - JSON export/import postupu s kontrolou verze a struktury, export kompletní aktuální databáze, reset s potvrzením.
 - Tmavý a světlý režim (na telefonu v Nastavení), klávesy 1–3 a Enter, dialogy s uzavřeným cyklem fokusu a Escape, omezení animací podle systému.
 
-## Podklady a neoficiální klíč
+## Primární databáze a pracovní klíč
 
-Původní otázky a možnosti pocházejí z přiloženého PDF „Otázky KT - seznam 2022.pdf“. Dokument nemá pořadová čísla; ID 1–62 jsou přidělena podle pořadí v dokumentu. Text je zachován včetně původních formulací a překlepů; typografické mezery a zalomení jsou sjednoceny. Automatickou extrakci reprodukujete příkazy `node scripts/extract.mjs` a `node scripts/enrich.mjs`. Druhý skript opravuje pět přesahů třetích možností do další otázky a přidává samostatně zdůvodněný pracovní klíč.
+Primární databází je dodaný [MPC-BEZ_otazky_klic.json](src/data/MPC-BEZ_otazky_klic.json), uložený beze změny. [Doprovodné poznámky](docs/MPC-BEZ_otazky_klic.md) zachycují výhrady ke klíči. Všech 62 otázek a všech 186 možností se používá v přesném znění JSONu, včetně původních ID. PDF se znovu neextrahuje a build ani testy jej nepotřebují.
 
-**PDF neobsahuje oficiální klíč.** Dne 8. 11. 2026 bylo znovu prověřeno všech 62 položek proti dohledatelným primárním zdrojům. [Podrobná kontrola](docs/kontrola-otazek.md) obsahuje všechny otázky a odkazy; strojová evidence je v [answer-audit.json](src/data/answer-audit.json). Skripta VUT z roku 2011 jsou výslovně historický podklad, pracovní sešit autora je z roku 2024. Aktuální plná znění všech placených ČSN ani oficiální klíč pedagoga nejsou k dispozici.
+Aplikace respektuje pole `answerStatus`:
 
-První možnost je velmi pravděpodobně zamýšleným vzorem sady, ale není možné z toho odvodit bezvýhradnou správnost všech prvních možností. Žádný nalezený doklad nevyžadoval místo první právě druhou nebo třetí nabízenou odpověď. Některé otázky jsou nepřesné, podmíněné nebo historické.
+- `provisional`: 45 předběžných odpovědí.
+- `provisional_ambiguous`: 16 předběžných nejednoznačných odpovědí s konkrétní výhradou v `answerNote`.
+- `needs_review`: otázka 7. Nikdy se nehodnotí jako správná ani chybná, ani pokud někdo doplní neprázdné `correctAnswerId` bez změny stavu. Neovlivní úspěšnost, intervaly ani počet hodnocených pokusů.
 
-Databáze [questions.json](src/data/questions.json) rozlišuje:
+Předběžné odpovědi se hodnotí podle dodaného `correctAnswerId`, s viditelným označením pracovního klíče. Nejde o oficiálně potvrzenou správnost. V dodané databázi má 61 položek klíč "1", otázka 7 má `null`. V testu se možnosti vždy náhodně promíchají; skórování porovnává stabilní ID a nespoléhá na pořadí ani na hodnotu "1".
 
-- `verified`: **47** odpovědí doložených zdrojem pro výběr mezi nabídnutými možnostmi. V rozhraní „Doloženo zdrojem“. Není to oficiální testový klíč ani certifikace současné právní či normativní shody.
-- `provisional`: **11** podmíněných nebo historických návrhů. Mohou být záměrem staršího testu, ale v nových testech se nehodnotí.
-- `needs_review`: **4** zásadně sporné otázky (7, 37, 59, 62), bez hodnotícího klíče. Odhad původního testového záměru A je oddělen v `expectedTestAnswerId` a není vydáván za potvrzenou odpověď.
+Pozdější oprava sdíleného klíče znamená změnu `correctAnswerId`, `answerStatus` a `answerNote` ve výchozím JSONu a nové nasazení. Neměňte přitom ID ani původní texty. Editor v Přehledu otázek umožňuje opravu pro vlastní prohlížeč, včetně nejednoznačného stavu a obnovení výchozího klíče. Lokální změny jsou součástí exportu postupu; na spolužáky se automaticky nepřenášejí. Úprava se projeví v nových testech. Rozpracované a dokončené testy mají snímek klíče, aby se historická hodnocení nepřepisovala.
 
-**Nové testy hodnotí jen doložené otázky.** Volba pouze doložených otázek ostatní vyřadí z výběru; při úplné sadě zůstanou dostupné pro studium bez vlivu na úspěšnost. Na studijní stránce je podmíněný návrh označen oranžově a doložená odpověď zeleně. U každé otázky lze otevřít konkrétní zdroje a přečíst výhrady. Starší dokončené a rozpracované testy zachovávají původní snímek klíče; pro nové hodnocení zahajte nový test. Aplikace upozorní na rozpracovaný test vzniklý před kontrolou.
-
-Aplikace neslouží jako návod k práci na elektrickém zařízení. Sada 2022 nemusí odpovídat současnému testu ani jeho pořadí možností. Aplikace možnosti vždy promíchává; „první“ se vztahuje k původnímu PDF.
-
-Editor v Přehledu otázek mění pouze lokální klíč, vysvětlení, stav a poznámku. Nejde o serverového správce. Úpravy se nepřenášejí ostatním spolužákům. Sdílený klíč aktualizujte změnou databáze v repozitáři a novým nasazením. Rozpracované a dokončené testy mají vlastní snímek klíče, takže pozdější úprava nezmění historické hodnocení. Lokální změna se přenese exportem/importem postupu.
+Soubor [questions.json](src/data/questions.json) uchovává předchozí katalog pouze pro témata a migraci dříve uložených dat. Jeho klíče ani stav ověření se nepoužívají jako výchozí hodnoty nových otázek. [Starší kontrola](docs/kontrola-otazek.md) a extrakční skripty jsou historické podklady; jejich odlišné hodnocení bylo nahrazeno dodanou JSON databází.
 
 ## Data a zálohy
 
-Postup je v klíči `mpc-bez-v1`. Vymazání dat webu nebo anonymního profilu jej odstraní. Každý prohlížeč i doména mají vlastní postup; pro přenos použijte Nastavení → Exportovat/Importovat postup. Import nahrazuje dosavadní data až po potvrzení. Reset statistiky zachová klíč a nastavení. Při chybě ukládání se zobrazí upozornění; použijte export. Nečitelné původní uložené údaje se automaticky nepřepisují.
+Postup je nadále v klíči `mpc-bez-v1`, struktura má verzi 2. Původní verze 1 se při načtení či importu automaticky převede: ID otázek q1–q62 na bez-01–bez-62 a možnosti a/b/c na 1/2/3. Statistiky, označení obtížnosti, pořadí rozpracovaného testu, historie i lokální změny zůstanou zachované; staré výsledky se nepřepočítávají. Vymazání dat webu nebo anonymního profilu jej odstraní. Každý prohlížeč i doména mají vlastní postup; pro přenos použijte Nastavení → Exportovat/Importovat postup. Import nahrazuje dosavadní data až po potvrzení. Reset statistiky zachová klíč a nastavení. Při chybě ukládání se zobrazí upozornění; použijte export. Nečitelné původní uložené údaje se automaticky nepřepisují.
 
 ## Testy
 
@@ -58,7 +54,7 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-Jednotkové testy ověřují všech 62 záznamů, integritu odpovědí, opravy extrakce, promíchání, dvojklik, průchod testem, statistiky, opakování, nehodnocené otázky, uložení/obnovu, chyby úložiště a validaci importu. Prohlížečové testy ověřují skutečný průchod na desktopu a mobilu, simulaci, časový limit po obnovení, editor, zálohy a rozložení.
+Jednotkové testy ověřují všech 62 záznamů, integritu odpovědí, přesnou shodu s dodaným JSONem, migraci starých dat, opravu klíče na libovolné ID, promíchání, dvojklik, průchod testem, statistiky, opakování, nehodnocené otázky, uložení/obnovu, chyby úložiště a validaci importu. Prohlížečové testy ověřují skutečný průchod na desktopu a mobilu, simulaci, časový limit po obnovení, editor, zálohy a rozložení.
 
 ## GitHub Pages
 
@@ -66,4 +62,4 @@ Repozitář je určen pro účet `kafcoo`, název `mpc-bez-quiz`. V Settings →
 
 Očekávaná adresa po úspěšném nasazení: https://kafcoo.github.io/mpc-bez-quiz/
 
-Původní PDF, zadání a surová extrakce zůstávají pouze lokálně a nejsou publikovány. Repozitář obsahuje aplikaci s potřebnou databází otázek, testy a dokumentaci. Pro opakování extrakce vložte původní PDF do kořene své lokální kopie. Přenosné nástroje a přihlašovací stav v `.tools` jsou ignorovány a nepatří do repozitáře.
+Původní PDF, zadání a surová extrakce zůstávají pouze lokálně a nejsou publikovány. Repozitář obsahuje aplikaci s potřebnou databází otázek, testy a dokumentaci. PDF není zdrojem pro nové sestavení aplikace. Přenosné nástroje a přihlašovací stav v `.tools` jsou ignorovány a nepatří do repozitáře.

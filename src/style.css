@@ -858,7 +858,8 @@ progress::-moz-progress-bar {
   background: #eff5ed;
   border-color: #e0eadb;
 }
-.provisional {
+.provisional,
+.provisional_ambiguous {
   color: #a27a38;
   background: #fbf5e8;
   border-color: #efdfbf;
