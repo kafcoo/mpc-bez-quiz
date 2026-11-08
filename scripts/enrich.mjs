@@ -170,7 +170,93 @@ for (const q of qs) {
     q.note +=
       " Původní znění z roku 2022; aktuální právní a normativní stav nebyl nezávisle ověřen.";
 }
+// Source-backed audit supersedes the initial provisional assessment above.
+const audit = JSON.parse(fs.readFileSync("src/data/answer-audit.json"));
+for (const q of qs) {
+  const entry = audit.entries.find((e) => e.number === q.originalNumber);
+  if (!entry || !entry.sources.length) throw Error(`Missing audit for ${q.id}`);
+  q.expectedTestAnswerId = entry.expectedTestAnswerId;
+  q.verificationStatus = entry.verificationStatus;
+  q.correctAnswerId =
+    entry.verificationStatus === "needs_review"
+      ? null
+      : entry.expectedTestAnswerId;
+  q.reviewedAt = audit.reviewedAt;
+  q.sources = entry.sources;
+  q.note =
+    entry.note + " Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.";
+  if (entry.verificationStatus !== "verified")
+    q.note += " V nových testech se tato otázka nehodnotí.";
+}
+const auditExplanations = {
+  19: "Pro starší test je první možnost doložena historickou předmluvou ČSN 33 1610. Dnešní použitelný předpis je nutné určit podle zařízení.",
+  21: "Ve výukovém příkladu sítě TN je uvedeno 5 Ω, při obtížných podmínkách nejvýše 15 Ω. Kontext soustavy v otázce chybí.",
+  23: "Samostatně vedený PE může být holý nebo izolovaný. Přípustná trasa závisí na soustavě a zajištění ochrany, nejde o univerzální pravidlo.",
+  30: "Starší skripta výslovně odpovídají první možnosti. Rozhodující jsou vždy konkrétní bezpečnostní podmínky.",
+  31: "První možnost odpovídá historickému rozlišení pracovníka znalého a znalého s vyšší kvalifikací. Současné kategorie nelze zaměňovat.",
+  37: "První možnost odpovídá historickému meznímu údaji. Bez rozlišení normálních a poruchových podmínek ji nelze bezvýhradně hodnotit.",
+  41: "Oddělovací transformátor je běžný vhodný zdroj. Jeho výlučnou nezbytnost však obecná definice elektrického oddělení nestanoví.",
+  59: "První možnost je dohledatelná ve starší výukové tabulce. Nejde o obecně platnou současnou mez bez dalšího kontextu.",
+  60: "Historická výuková definice používá kryt chránící před úmyslným dotykem, tedy první možnost. Nelze ji zaměnit s úplným pracovním postupem.",
+  62: "Zákonná povinnost je doložena, ale rizika také ovlivňují rozsah a lhůty. Jedinou správnou možnost bez potvrzení autora neurčuji.",
+};
+for (const q of qs)
+  if (auditExplanations[q.originalNumber])
+    q.explanation = auditExplanations[q.originalNumber];
 fs.writeFileSync("src/data/questions.json", JSON.stringify(qs, null, 2));
+fs.mkdirSync("docs", { recursive: true });
+const status = {
+  verified: "Doloženo zdrojem",
+  provisional: "Podmíněný / historický návrh",
+  needs_review: "Sporné · bez hodnocení",
+};
+const lines = [
+  "# Kontrola všech 62 otázek MPC-BEZ",
+  "",
+  "Datum: 8. 11. 2026",
+  "",
+  "**Závěr:** první možnost je velmi pravděpodobně zamýšleným vzorem sady. Nebyl nalezen oficiální klíč potvrzující pravidlo „vždy první“. Kontrola neodhalila doložený případ, kdy by místo první musela být správná právě druhá nebo třetí možnost. To neznamená, že každá první možnost je přesným a aktuálním pravidlem bezpečnosti.",
+  "",
+  "47 položek má dostatečnou oporu pro studijní hodnocení. U 11 je odpověď podmíněná nebo historická. Čtyři otázky (7, 37, 59, 62) mají zásadně nejasnou formulaci. **V nových testech se hodnotí pouze položky „Doloženo zdrojem“.** Ostatních 15 lze studovat, ale nezvyšují ani nesnižují úspěšnost.",
+  "",
+  "„Doloženo“ označuje oporu pro výběr mezi uvedenými možnostmi. Není to potvrzení vyučujícího ani certifikace souladu s každou nynější normou. U výukových materiálů se uvádí rok a fyzická stránka PDF, nikoli číslo snímku. První možnost níže pochází z původního poskytnutého PDF; její uvedení u sporné otázky je odhad testového záměru, nikoli určený správný klíč.",
+  "",
+  "První kontrola zbytečně ponechala bez návrhu otázky 19, 21, 30, 31 a 60: nyní jsou podloženy historickými dokumenty. Jejich podmíněnost zůstává výslovná. Původní otázky a možnosti se neměnily. Rozpracované a dokončené starší testy zachovávají vlastní původní klíč; pro nové hodnocení je třeba zahájit nový test.",
+  "",
+  "## Výsledky po jednotlivých otázkách",
+  "",
+  "| # | Původní otázka | První možnost v PDF (odhad testového záměru) | Výsledek kontroly a zdroje |",
+  "|---|---|---|---|",
+];
+for (const q of qs) {
+  const esc = (s) => s.replace(/\|/g, "\\|").replace(/\n/g, " ");
+  lines.push(
+    `| ${q.originalNumber} | ${esc(q.question)} | ${esc(q.options[0].text)} | **${status[q.verificationStatus]}**. ${q.sources.map((s) => `[${s.title}](${s.url})`).join("; ")} |`,
+  );
+}
+lines.push(
+  "",
+  "## Důležité výhrady",
+  "",
+  "- **7:** záměna základní ochrany a ochrany při poruše; první možnost není bezpečné bezvýhradné tvrzení.",
+  "- **37:** hodnoty první možnosti se vztahují k jiným podmínkám než běžné provozní hodnoty v novějším sešitu.",
+  "- **59:** první možnost odpovídá starší tabulce; novější podklady vyžadují odlišení situace a druhu ochrany.",
+  "- **62:** zákonná povinnost a hodnocení rizik se nevylučují; možnosti nejsou čistě protikladné.",
+  "",
+  "## Metoda a meze",
+  "",
+  "Kontrola srovnala všechna znění a všechny tři možnosti s podklady autora na webu VUT, technickým průvodcem výrobce Schneider Electric, dokumentací Rockwell Automation, oficiálním náhledem ČAS, vysvětleními HSE a SÚIP a právem EU. Nebyl použit názor jiného modelu jako důkaz. Plné aktuální znění všech placených ČSN ani neveřejný klíč pedagoga nebyly k dispozici. Sada 2022 nemusí být totožná se současným testem.",
+  "",
+  "Úplná položková evidence včetně poznámek je v [answer-audit.json](../src/data/answer-audit.json).",
+);
+fs.writeFileSync("docs/kontrola-otazek.md", lines.join("\n") + "\n");
 console.log(
-  `${qs.length} otázek, ${verified.size} posouzených, ${review.size} k revizi`,
+  "Audit:",
+  audit.entries.reduce(
+    (a, e) => (
+      (a[e.verificationStatus] = (a[e.verificationStatus] || 0) + 1),
+      a
+    ),
+    {},
+  ),
 );

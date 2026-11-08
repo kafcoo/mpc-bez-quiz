@@ -1847,3 +1847,48 @@ progress::-moz-progress-bar {
     display: initial;
   }
 }
+.question-sources {
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+}
+.question-sources > strong {
+  font-size: 10px;
+  color: var(--muted);
+}
+.question-sources ul {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+  display: grid;
+  gap: 5px;
+}
+.question-sources a {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+.audit-intent {
+  padding: 10px 12px;
+  background: var(--soft);
+  border-radius: 7px;
+  font-size: 12px;
+}
+.study-options li.key-provisional {
+  background: #fcf3e4;
+  color: #936b2f;
+  border: 1px dashed #dfbd7d;
+}
+[data-theme="dark"] .study-options li.key-provisional {
+  background: #433a27;
+  color: #e8d0a6;
+}
+[data-theme="dark"] .question-sources a {
+  color: #afc8a7;
+}
+[data-theme="dark"] .feedback.neutral {
+  background: var(--soft);
+  color: var(--muted);
+}

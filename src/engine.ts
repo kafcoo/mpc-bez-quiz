@@ -10,6 +10,9 @@ export interface Question {
   category: string;
   verificationStatus: Status;
   note?: string;
+  expectedTestAnswerId?: string | null;
+  reviewedAt?: string;
+  sources?: { title: string; url: string }[];
 }
 export const questions: Question[] = raw as Question[];
 export const categories = [...new Set(questions.map((q) => q.category))];
@@ -136,7 +139,13 @@ export function createSession(
     title,
     questions: (randomOrder ? shuffle(pool) : pool)
       .slice(0, count)
-      .map((q) => ({ ...q, options: shuffle(q.options) })),
+      .map((q) => ({
+        ...q,
+        // A historical/test-intent proposal is study material, not a grading key.
+        correctAnswerId:
+          q.verificationStatus === "verified" ? q.correctAnswerId : null,
+        options: shuffle(q.options),
+      })),
     index: 0,
     answers: [],
     immediate,
@@ -241,7 +250,21 @@ export function validQuestion(v: unknown): v is Question {
     (v.correctAnswerId === null ||
       v.options.some((o) => o.id === v.correctAnswerId)) &&
     (v.verificationStatus !== "verified" || v.correctAnswerId !== null) &&
-    (v.note === undefined || str(v.note))
+    (v.note === undefined || str(v.note)) &&
+    (v.expectedTestAnswerId === undefined ||
+      v.expectedTestAnswerId === null ||
+      v.options.some((o) => o.id === v.expectedTestAnswerId)) &&
+    (v.reviewedAt === undefined || date(v.reviewedAt)) &&
+    (v.sources === undefined ||
+      (Array.isArray(v.sources) &&
+        v.sources.length <= 10 &&
+        v.sources.every(
+          (s) =>
+            object(s) &&
+            str(s.title) &&
+            typeof s.url === "string" &&
+            /^https:\/\/[^\s]+$/.test(s.url),
+        )))
   );
 }
 function validAnswer(v: unknown): v is Answer {

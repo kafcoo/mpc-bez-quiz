@@ -50,7 +50,7 @@ const groups = [
 ];
 const fmt = (v: number | null) => (v === null ? "—" : `${v} %`);
 const statusText = {
-  verified: "Posouzeno",
+  verified: "Doloženo zdrojem",
   provisional: "Pracovní návrh",
   needs_review: "K ověření",
 };
@@ -324,11 +324,42 @@ export default function App() {
     <div className="explanation">
       <strong>
         {question.correctAnswerId
-          ? `Navržená odpověď: ${question.options.find((o) => o.id === question.correctAnswerId)?.text}`
+          ? `${question.verificationStatus === "verified" ? "Doložená odpověď" : "Podmíněný testový návrh"}: ${question.options.find((o) => o.id === question.correctAnswerId)?.text}`
           : "Klíč není určen · bez hodnocení"}
       </strong>
+      {question.expectedTestAnswerId &&
+        question.verificationStatus !== "verified" && (
+          <p className="audit-intent">
+            Pravděpodobný záměr sady 2022: původní možnost{" "}
+            {question.expectedTestAnswerId.toUpperCase()} —{" "}
+            {
+              question.options.find(
+                (o) => o.id === question.expectedTestAnswerId,
+              )?.text
+            }
+            . Tento návrh se v nových testech nehodnotí.
+          </p>
+        )}
       <p>{question.explanation}</p>
       <small>{question.note}</small>
+      {question.sources && (
+        <div className="question-sources">
+          <strong>
+            Zdroje kontroly ·{" "}
+            {question.reviewedAt &&
+              new Date(question.reviewedAt).toLocaleDateString("cs-CZ")}
+          </strong>
+          <ul>
+            {question.sources.map((source) => (
+              <li key={source.url}>
+                <a href={source.url} target="_blank" rel="noopener noreferrer">
+                  {source.title} ↗
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
   return (
@@ -694,6 +725,13 @@ export default function App() {
                     : `${active.answers.length} zodpovězeno · vyhodnocení na konci`}
                 </span>
               </div>
+              {active.questions.some((question) => !question.reviewedAt) && (
+                <p className="alert">
+                  Tento rozpracovaný test vznikl před kontrolou klíče z 8. 11.
+                  2026 a zachovává původní klíč. Pro aktuální zdroje a hodnocení
+                  zahaj nový test.
+                </p>
+              )}
               <progress
                 max={active.questions.length}
                 value={active.answers.length}
@@ -774,7 +812,7 @@ export default function App() {
               </article>
               <p className="muted quiz-note">
                 {q.verificationStatus === "provisional"
-                  ? "Hodnocení této otázky používá pracovní, dosud nepotvrzený návrh klíče."
+                  ? "Podmíněný nebo historický návrh: v nových testech se nezapočítává do úspěšnosti."
                   : q.correctAnswerId === null
                     ? "Tato otázka nemá určený klíč a nezapočítá se do úspěšnosti."
                     : "Klíč slouží pro studium a není oficiálním klíčem vyučujícího."}
@@ -932,15 +970,19 @@ export default function App() {
                         key={o.id}
                         className={
                           showKey && question.correctAnswerId === o.id
-                            ? "key-correct"
+                            ? question.verificationStatus === "verified"
+                              ? "key-correct"
+                              : "key-provisional"
                             : ""
                         }
                       >
                         <span>{o.id.toUpperCase()}</span>
                         {o.text}
-                        {showKey && question.correctAnswerId === o.id && (
-                          <Check size={16} />
-                        )}
+                        {showKey &&
+                          question.verificationStatus === "verified" &&
+                          question.correctAnswerId === o.id && (
+                            <Check size={16} />
+                          )}
                       </li>
                     ))}
                   </ul>
@@ -1177,9 +1219,9 @@ export default function App() {
                   Do nových testů zařadit jen odborně posouzené odpovědi
                 </label>
                 <p className="muted">
-                  Pracovní návrhy se jinak hodnotí podle neoficiálního klíče.
-                  Otázky bez klíče se nikdy nehodnotí. Odpovědi se promíchávají
-                  vždy.
+                  V nových testech se hodnotí jen doložené odpovědi. Ostatní
+                  otázky lze zahrnout pro studium bez vlivu na skóre. Odpovědi
+                  se promíchávají vždy.
                 </p>
               </section>
               <section className="panel settings-panel">
@@ -1256,10 +1298,22 @@ export default function App() {
                 <h2>Jak funguje klíč a opakování?</h2>
                 <p>
                   Zdrojový dokument z roku 2022 neobsahuje oficiální klíč.
-                  „Posouzeno“ znamená odpověď podle základního odborného
-                  principu; „Pracovní návrh“ čeká na potvrzení. „K ověření“ nemá
-                  určenou odpověď. Aktuální znění předpisů není v této aplikaci
-                  nezávisle ověřeno.
+                  Kontrola 8. 11. 2026 porovnala všech 62 otázek se zdroji.
+                  „Doloženo zdrojem“ má 47 položek. U 11 je návrh podmíněný nebo
+                  historický; 4 otázky jsou sporné. Posledních 15 se v nových
+                  testech nehodnotí. Odhad testového záměru je oddělen od
+                  hodnotícího klíče. Nejde o oficiální klíč ani potvrzení
+                  aktuálnosti všech norem.
+                </p>
+                <p>
+                  <a
+                    className="text-button"
+                    href="https://github.com/kafcoo/mpc-bez-quiz/blob/main/docs/kontrola-otazek.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Podrobná kontrola všech 62 otázek a její meze ↗
+                  </a>
                 </p>
                 <p>
                   Klíč, vysvětlení a poznámku můžeš upravit u každé otázky v
@@ -1520,7 +1574,8 @@ export default function App() {
               Pouze odborně posouzené odpovědi
             </label>
             <p className="muted">
-              Žádný klíč není oficiální. Otázky bez klíče se nehodnotí.
+              Žádný klíč není oficiální. Podmíněné a sporné otázky se v nových
+              testech nehodnotí.
             </p>
             {notice && (
               <p role="alert" className="alert">

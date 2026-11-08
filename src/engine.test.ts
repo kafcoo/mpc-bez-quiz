@@ -42,10 +42,10 @@ describe("původní databáze", () => {
     expect(questions[38].question.startsWith("První číslice")).toBe(true);
   });
   it("nevnucuje klíč sporným otázkám", () => {
-    expect(questions.filter((q) => !q.correctAnswerId)).toHaveLength(9);
+    expect(questions.filter((q) => !q.correctAnswerId)).toHaveLength(4);
     expect(
       questions.filter((q) => q.verificationStatus === "verified"),
-    ).toHaveLength(25);
+    ).toHaveLength(47);
   });
 });
 describe("testy a hodnocení", () => {
@@ -196,5 +196,38 @@ describe("ukládání a zálohy", () => {
     expect(parseStore(JSON.stringify(s)).overrides.q1.correctAnswerId).toBe(
       "b",
     );
+  });
+});
+
+describe("kontrola zdrojů a bezpečné hodnocení", () => {
+  it("má pro každou z 62 otázek datovanou evidenci a platný odkaz", () => {
+    for (const q of questions) {
+      expect(q.reviewedAt).toBe("2026-11-08");
+      expect(q.sources?.length).toBeGreaterThan(0);
+      expect(q.options.some((o) => o.id === q.expectedTestAnswerId)).toBe(true);
+      for (const s of q.sources!)
+        expect(new URL(s.url).protocol).toBe("https:");
+    }
+  });
+  it("podmíněný klíč nehodnotí, ani když se zvolí jeho navržená odpověď", () => {
+    for (const q of questions.filter(
+      (q) => q.verificationStatus === "provisional",
+    )) {
+      expect(q.correctAnswerId).not.toBeNull();
+      let s = fresh();
+      s.active = createSession([q], "test", false, true);
+      s = answer(s, q.correctAnswerId!);
+      expect(s.answers[0].correct).toBeNull();
+      expect(s.progress[q.id].attempts).toBe(0);
+      expect(parseStore(JSON.stringify(s))).toEqual(s);
+    }
+  });
+  it("odmítne nebezpečný odkaz ze zálohy", () => {
+    const s = fresh();
+    s.overrides.q1 = {
+      ...questions[0],
+      sources: [{ title: "Zdroj", url: "javascript:alert(1)" }],
+    };
+    expect(() => parseStore(JSON.stringify(s))).toThrow();
   });
 });

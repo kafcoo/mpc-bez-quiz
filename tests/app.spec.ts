@@ -126,7 +126,7 @@ test("kompletní test respektuje filtr, dostupnost a rozložení", async ({
   await page.getByRole("button", { name: /62 otázek Kompletní test/ }).click();
   await page.getByLabel("Pouze odborně posouzené odpovědi").check();
   await page.getByRole("button", { name: "Spustit procvičování" }).click();
-  await expect(page.locator(".quiz-progress")).toContainText("z 25");
+  await expect(page.locator(".quiz-progress")).toContainText("z 47");
   await page.getByRole("button", { name: "Označit jako obtížnou" }).click();
   await expect(
     page.getByRole("button", { name: "Označit jako obtížnou" }),
@@ -166,4 +166,32 @@ test("všech 62 otázek, tmavý režim, potvrzený reset a fokus dialogu", async
   expect(state.answers).toEqual([]);
   expect(state.active).toBeNull();
   expect(state.settings.dark).toBe(true);
+});
+
+test("historický návrh má zdroj a nepřidá správnou ani chybnou odpověď", async ({
+  page,
+}) => {
+  await group(page, 19, 19);
+  await page.locator(".answer").first().click();
+  await expect(page.getByText("Uloženo bez hodnocení")).toBeVisible();
+  await expect(page.locator(".answer.correct")).toHaveCount(0);
+  await expect(page.locator(".question-sources")).toContainText("ČAS");
+  await expect(page.locator(".audit-intent")).toContainText(
+    "původní možnost A",
+  );
+  const state = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("mpc-bez-v1")!),
+  );
+  expect(state.answers[0].correct).toBeNull();
+  expect(state.progress.q19.attempts).toBe(0);
+  await page.reload();
+  await page.getByRole("button", { name: "Pokračovat v testu" }).click();
+  await expect(page.getByText("Uloženo bez hodnocení")).toBeVisible();
+  await nav(page, "Přehled otázek").click();
+  await page.getByLabel("Vyhledat otázku").fill("Nepřenosné spotřebiče");
+  await page.getByRole("button", { name: "Ukázat odpovědi" }).click();
+  await expect(page.locator(".key-provisional")).toContainText(
+    "spolu s elektrickou instalací",
+  );
+  await expect(page.locator(".key-correct")).toHaveCount(0);
 });

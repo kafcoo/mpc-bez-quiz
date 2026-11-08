@@ -1,0 +1,854 @@
+{
+  "reviewedAt": "2026-11-08",
+  "scope": "Kontrola všech 62 položek; oficiální klíč vyučujícího nebyl nalezen. Očekávané A je odborný odhad z významu a zdrojů, nikoli potvrzení pořadového pravidla.",
+  "entries": [
+    {
+      "number": 1,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Ochrana při poruše; jiné ochrany řeší přetížení a přepětí.",
+      "sources": [
+        {
+          "title": "Schneider Electric · ochrana před úrazem",
+          "url": "https://www.electrical-installation.org/enwiki/Types_of_protection_against_electric_shock"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Jde o signalizaci stavu stroje, nikoli obecně všechny značky.",
+      "sources": [
+        {
+          "title": "Rockwell Automation · signalizace podle IEC 60204-1",
+          "url": "https://literature.rockwellautomation.com/idc/groups/literature/documents/pp/800e-pp001_-en-p.pdf"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Nouzový stav v uvedené soustavě signalizace.",
+      "sources": [
+        {
+          "title": "Rockwell Automation · signalizace podle IEC 60204-1",
+          "url": "https://literature.rockwellautomation.com/idc/groups/literature/documents/pp/800e-pp001_-en-p.pdf"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Normální stav v uvedené soustavě signalizace.",
+      "sources": [
+        {
+          "title": "Rockwell Automation · signalizace podle IEC 60204-1",
+          "url": "https://literature.rockwellautomation.com/idc/groups/literature/documents/pp/800e-pp001_-en-p.pdf"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "A je nejbližší nabízená možnost. Posuzuje se i rozumně předvídatelné použití.",
+      "sources": [
+        {
+          "title": "EUR-Lex · 2023/988, čl. 3 · konsolidace 29. 5. 2026",
+          "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:02023R0988-20260529"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Omezení 25 V či 60 V není obecnou definicí SELV/PELV.",
+      "sources": [
+        {
+          "title": "Schneider Electric · SELV a PELV",
+          "url": "https://www.electrical-installation.org/enwiki/Extra_Low_Voltage_(ELV)"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "needs_review",
+      "note": "Terminologicky sporné: pospojování doplňuje ochranu při poruše; výraz základní ochrana v A je zavádějící. Záměr A je pouze odhad.",
+      "sources": [
+        {
+          "title": "Schneider Electric · ochrana před úrazem",
+          "url": "https://www.electrical-installation.org/enwiki/Types_of_protection_against_electric_shock"
+        },
+        {
+          "title": "IET · ochranné pospojování",
+          "url": "https://electrical.theiet.org/wiring-matters/years/2019/76-july-2019/protective-bonding-habits/"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Mezi nabídnutými možnostmi A; přímo uzemněný zdroj má také TT.",
+      "sources": [
+        {
+          "title": "Schneider Electric · soustavy uzemnění",
+          "url": "https://www.electrical-installation.org/enwiki/Definition_of_standardised_earthing_schemes"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "provisional",
+      "note": "A odpovídá bezpečnostnímu principu; citované stránky nedokládají přesnou obecnou výjimku pro každý přístroj.",
+      "sources": [
+        {
+          "title": "VUT · skripta 2011, PDF str. 15 · historický podklad",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=15"
+        },
+        {
+          "title": "HSE · kontrola před použitím a vyřazení poškozeného zařízení",
+          "url": "https://www.hse.gov.uk/electricity/introduction.htm"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Nebezpečný provoz se neřeší jen tabulkou či kvalifikovanou obsluhou.",
+      "sources": [
+        {
+          "title": "HSE · kontrola před použitím a vyřazení poškozeného zařízení",
+          "url": "https://www.hse.gov.uk/electricity/introduction.htm"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Fázové a sdružené napětí běžné distribuční sítě.",
+      "sources": [
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 4",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=4"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Uživatelská kontrola před použitím se liší od odborné revize.",
+      "sources": [
+        {
+          "title": "HSE · kontrola před použitím a vyřazení poškozeného zařízení",
+          "url": "https://www.hse.gov.uk/electricity/introduction.htm"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "§ 6 elektrotechnik; § 7 řízení činnosti. Výklad musí respektovat rozsah způsobilosti.",
+      "sources": [
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 7",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=7"
+        },
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 8",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+        },
+        {
+          "title": "e-Sbírka · NV 194/2022 (kanonický odkaz; rozhodující rozsah kvalifikace)",
+          "url": "https://e-sbirka.gov.cz/sb/2022/194"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Platí v kontextu otázky; neplést s přímým dotykem živých částí.",
+      "sources": [
+        {
+          "title": "Schneider Electric · ochrana před úrazem",
+          "url": "https://www.electrical-installation.org/enwiki/Types_of_protection_against_electric_shock"
+        },
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 16",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=16"
+        },
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 17",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=17"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Minimální průřez není libovolnou volbou barvy nebo způsobu vedení.",
+      "sources": [
+        {
+          "title": "Schneider Electric · minimální průřez PE/PEN",
+          "url": "https://www.electrical-installation.org/enwiki/Sizing_of_protective_earthing_conductor"
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "PELV dovoluje spojení se zemí.",
+      "sources": [
+        {
+          "title": "Schneider Electric · SELV a PELV",
+          "url": "https://www.electrical-installation.org/enwiki/Extra_Low_Voltage_(ELV)"
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Podle pokynů a jen v rozsahu poučení.",
+      "sources": [
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 8",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+        },
+        {
+          "title": "e-Sbírka · NV 194/2022 (kanonický odkaz; rozhodující rozsah kvalifikace)",
+          "url": "https://e-sbirka.gov.cz/sb/2022/194"
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Definice nebezpečného výrobku navazuje na definici bezpečného.",
+      "sources": [
+        {
+          "title": "EUR-Lex · 2023/988, čl. 3 · konsolidace 29. 5. 2026",
+          "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:02023R0988-20260529"
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "provisional",
+      "note": "A je výslovně doloženo ve starší normě. Nelze tak bez dalšího určovat dnešní revize všech nepřenosných spotřebičů.",
+      "sources": [
+        {
+          "title": "ČAS · historická ČSN 33 1610:2005, předmluva",
+          "url": "https://csnonlinefirmy.agentura-cas.cz/html_nahledy/33/71705/71705_nahled.htm"
+        },
+        {
+          "title": "ČAS · náhrady ČSN 33 1600 ed. 2 a ČSN 33 1610",
+          "url": "https://csnonlinefirmy.agentura-cas.cz/Detail.aspx?k=84306"
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "provisional",
+      "note": "Očekáváno A. Zdroj potvrzuje oddělení SELV od země, ale přesná úroveň izolace z této zkratky neplyne; vyžaduje konkrétní článek normy.",
+      "sources": [
+        {
+          "title": "Schneider Electric · SELV a PELV",
+          "url": "https://www.electrical-installation.org/enwiki/Extra_Low_Voltage_(ELV)"
+        },
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 22",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=22"
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "provisional",
+      "note": "A doloženo pro popsanou síť TN; otázka soustavu výslovně neuvádí.",
+      "sources": [
+        {
+          "title": "VUT · skripta 2011, PDF str. 47 · historický podklad",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=47"
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Koordinace uzemnění sítě a vypínacích vlastností přístroje.",
+      "sources": [
+        {
+          "title": "Schneider Electric · ochrana před úrazem",
+          "url": "https://www.electrical-installation.org/enwiki/Types_of_protection_against_electric_shock"
+        },
+        {
+          "title": "Schneider Electric · výchozí a pravidelná revize",
+          "url": "https://www.electrical-installation.org/enwiki/Quality_and_safety_of_an_electrical_installation"
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "provisional",
+      "note": "A může platit; samostatná trasa závisí na soustavě, ochraně a impedanci smyčky.",
+      "sources": [
+        {
+          "title": "Schneider Electric · provedení a vedení PE",
+          "url": "https://www.electrical-installation.org/enwiki/Connection_and_choice_for_protective_earthing_conductor"
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Dozor není totéž co občasný dohled.",
+      "sources": [
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 8",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+        },
+        {
+          "title": "e-Sbírka · NV 194/2022 (kanonický odkaz; rozhodující rozsah kvalifikace)",
+          "url": "https://e-sbirka.gov.cz/sb/2022/194"
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Dohled osoby znalé a bezpečná vzdálenost.",
+      "sources": [
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 8",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+        },
+        {
+          "title": "e-Sbírka · NV 194/2022 (kanonický odkaz; rozhodující rozsah kvalifikace)",
+          "url": "https://e-sbirka.gov.cz/sb/2022/194"
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Samostatnost jen v rozsahu kvalifikace a mimo zvláštní rizikové případy.",
+      "sources": [
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 8",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+        },
+        {
+          "title": "e-Sbírka · NV 194/2022 (kanonický odkaz; rozhodující rozsah kvalifikace)",
+          "url": "https://e-sbirka.gov.cz/sb/2022/194"
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Značení svorek odlišit od L1/L2/L3 pro vodiče.",
+      "sources": [
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 5",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Plynové potrubí se může pospojovat; neslouží jako PE.",
+      "sources": [
+        {
+          "title": "Schneider Electric · provedení a vedení PE",
+          "url": "https://www.electrical-installation.org/enwiki/Connection_and_choice_for_protective_earthing_conductor"
+        }
+      ]
+    },
+    {
+      "number": 29,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Doložení výukové definice; není to úplný výčet všech pracovních činností.",
+      "sources": [
+        {
+          "title": "VUT · skripta 2011, PDF str. 24 · historický podklad",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=24"
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "provisional",
+      "note": "A je doslovně doloženo ve starších skriptech; novější materiál popisuje rizikové podmínky podrobněji.",
+      "sources": [
+        {
+          "title": "VUT · skripta 2011, PDF str. 27 · historický podklad",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=27"
+        },
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 8",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+        }
+      ]
+    },
+    {
+      "number": 31,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "provisional",
+      "note": "A odpovídá starším kategoriím kvalifikace; nepřevádět bez výhrady na dnešní § 6 a § 7.",
+      "sources": [
+        {
+          "title": "VUT · skripta 2011, PDF str. 25 · historický podklad",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=25"
+        },
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 8",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+        }
+      ]
+    },
+    {
+      "number": 32,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Výuková definice práce pod napětím včetně pomůcek.",
+      "sources": [
+        {
+          "title": "VUT · skripta 2011, PDF str. 24 · historický podklad",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=24"
+        }
+      ]
+    },
+    {
+      "number": 33,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Výukové rozlišení pokynů, dohledu a dozoru.",
+      "sources": [
+        {
+          "title": "VUT · skripta 2011, PDF str. 24 · historický podklad",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=24"
+        }
+      ]
+    },
+    {
+      "number": 34,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "provisional",
+      "note": "A v historickém kontextu; 20 cm není univerzální současné oprávnění k práci u živých částí.",
+      "sources": [
+        {
+          "title": "VUT · skripta 2011, PDF str. 25 · historický podklad",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=25"
+        },
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 8",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+        }
+      ]
+    },
+    {
+      "number": 35,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Písemný pokyn ani vlastní riziko neospravedlňují nebezpečný nezákonný postup.",
+      "sources": [
+        {
+          "title": "VUT · skripta 2011, PDF str. 23 · historický podklad",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=23"
+        }
+      ]
+    },
+    {
+      "number": 36,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Revize zohledňuje i zhoršení stavu během provozu.",
+      "sources": [
+        {
+          "title": "Schneider Electric · výchozí a pravidelná revize",
+          "url": "https://www.electrical-installation.org/enwiki/Quality_and_safety_of_an_electrical_installation"
+        }
+      ]
+    },
+    {
+      "number": 37,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "needs_review",
+      "note": "A odpovídá historické mezní hodnotě a poruchovým/specifickým podmínkám. Novější materiál pro normální podmínky uvádí 0,5 mA AC / 2 mA DC; kontext v otázce chybí.",
+      "sources": [
+        {
+          "title": "VUT · skripta 2011, PDF str. 40 · historický podklad",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=40"
+        },
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 17",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=17"
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Doložené provedení běžného prodlužovacího přívodu pro zásuvkový rozvod.",
+      "sources": [
+        {
+          "title": "VUT · skripta 2011, PDF str. 16 · historický podklad",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=16"
+        }
+      ]
+    },
+    {
+      "number": 39,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "První číslice zahrnuje přístup k nebezpečným částem.",
+      "sources": [
+        {
+          "title": "Schneider Electric · IP a IK",
+          "url": "https://www.electrical-installation.org/enwiki/Protection_provided_for_enclosed_equipment:_codes_IP_and_IK"
+        },
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 15",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=15"
+        }
+      ]
+    },
+    {
+      "number": 40,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Kontrola řádného stavu před použitím pomůcky.",
+      "sources": [
+        {
+          "title": "VUT · skripta 2011, PDF str. 29 · historický podklad",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=29"
+        }
+      ]
+    },
+    {
+      "number": 41,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "provisional",
+      "note": "A je běžné řešení; formulace musí je příliš výlučná, existují i ekvivalentní oddělené zdroje.",
+      "sources": [
+        {
+          "title": "Schneider Electric · elektrické oddělení",
+          "url": "https://www.electrical-installation.org/enwiki/The_electrical_separation_of_circuits"
+        },
+        {
+          "title": "VUT · skripta 2011, PDF str. 52 · historický podklad",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=52"
+        }
+      ]
+    },
+    {
+      "number": 42,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Odpovědnost pracujícího v uvedeném rozlišení; nezbavuje zaměstnavatele ostatních povinností.",
+      "sources": [
+        {
+          "title": "VUT · skripta 2011, PDF str. 24 · historický podklad",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=24"
+        }
+      ]
+    },
+    {
+      "number": 43,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Přídavná izolace doplňuje základní.",
+      "sources": [
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 22",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=22"
+        }
+      ]
+    },
+    {
+      "number": 44,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Příkazový tvar a barevnost.",
+      "sources": [
+        {
+          "title": "HSE · bezpečnostní značky",
+          "url": "https://www.hse.gov.uk/workplacetransport/safetysigns/index.htm"
+        }
+      ]
+    },
+    {
+      "number": 45,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Střed stejnosměrné soustavy M.",
+      "sources": [
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 5",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+        }
+      ]
+    },
+    {
+      "number": 46,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Druhá číslice 4: stříkající voda.",
+      "sources": [
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 15",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=15"
+        },
+        {
+          "title": "Schneider Electric · IP a IK",
+          "url": "https://www.electrical-installation.org/enwiki/Protection_provided_for_enclosed_equipment:_codes_IP_and_IK"
+        }
+      ]
+    },
+    {
+      "number": 47,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Svorka PE; odlišit od PEN a N.",
+      "sources": [
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 5",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+        }
+      ]
+    },
+    {
+      "number": 48,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "provisional",
+      "note": "A odpovídá historickému rámci stanovených výrobků; dnešní předpis závisí i na odvětví a přímo použitelném právu EU.",
+      "sources": [
+        {
+          "title": "VUT · skripta 2011, PDF str. 21 · historický podklad",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=21"
+        }
+      ]
+    },
+    {
+      "number": 49,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Směrnice se transponují; nařízení EU se přímo použijí.",
+      "sources": [
+        {
+          "title": "Evropská komise · směrnice a nařízení",
+          "url": "https://commission.europa.eu/law/law-making-process/types-eu-law_en"
+        }
+      ]
+    },
+    {
+      "number": 50,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Ochranná funkce PEN nesmí být přerušena.",
+      "sources": [
+        {
+          "title": "Schneider Electric · kontinuita PEN v TN-C",
+          "url": "https://www.electrical-installation.org/enwiki/Sizing_the_neutral_conductor"
+        },
+        {
+          "title": "Schneider Electric · provedení a vedení PE",
+          "url": "https://www.electrical-installation.org/enwiki/Connection_and_choice_for_protective_earthing_conductor"
+        }
+      ]
+    },
+    {
+      "number": 51,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "V TT se nespojují neživé části s N; ochranné uzemnění je samostatné.",
+      "sources": [
+        {
+          "title": "Schneider Electric · soustavy uzemnění",
+          "url": "https://www.electrical-installation.org/enwiki/Definition_of_standardised_earthing_schemes"
+        },
+        {
+          "title": "Schneider Electric · provedení a vedení PE",
+          "url": "https://www.electrical-installation.org/enwiki/Connection_and_choice_for_protective_earthing_conductor"
+        }
+      ]
+    },
+    {
+      "number": 52,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Nezáměnnost s jinými napětími.",
+      "sources": [
+        {
+          "title": "Schneider Electric · SELV a PELV",
+          "url": "https://www.electrical-installation.org/enwiki/Extra_Low_Voltage_(ELV)"
+        }
+      ]
+    },
+    {
+      "number": 53,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Barva nulového vodiče N.",
+      "sources": [
+        {
+          "title": "Schneider Electric · N a PEN",
+          "url": "https://www.electrical-installation.org/enwiki/The_neutral_conductor"
+        },
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 5",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+        }
+      ]
+    },
+    {
+      "number": 54,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Zelenožlutá kombinace PE.",
+      "sources": [
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 5",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+        }
+      ]
+    },
+    {
+      "number": 55,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "A je správné nabízené provedení; existují normativně přípustné varianty označení.",
+      "sources": [
+        {
+          "title": "Schneider Electric · N a PEN",
+          "url": "https://www.electrical-installation.org/enwiki/The_neutral_conductor"
+        },
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 5",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+        }
+      ]
+    },
+    {
+      "number": 56,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Hnědá, černá a šedá; barvy neurčují samy sled fází.",
+      "sources": [
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 5",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+        }
+      ]
+    },
+    {
+      "number": 57,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Zpráva je součástí výstupu ověření.",
+      "sources": [
+        {
+          "title": "Schneider Electric · výchozí a pravidelná revize",
+          "url": "https://www.electrical-installation.org/enwiki/Quality_and_safety_of_an_electrical_installation"
+        }
+      ]
+    },
+    {
+      "number": 58,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Výstražný tvar a barevnost.",
+      "sources": [
+        {
+          "title": "HSE · bezpečnostní značky",
+          "url": "https://www.hse.gov.uk/workplacetransport/safetysigns/index.htm"
+        }
+      ]
+    },
+    {
+      "number": 59,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "needs_review",
+      "note": "A je doloženo ve staré tabulce; novější podklady rozlišují jiné podmínky. Bez určení normy není 25 V univerzální současná mez.",
+      "sources": [
+        {
+          "title": "VUT · skripta 2011, PDF str. 45 · historický podklad",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=45"
+        },
+        {
+          "title": "Schneider Electric · ochrana před úrazem",
+          "url": "https://www.electrical-installation.org/enwiki/Types_of_protection_against_electric_shock"
+        },
+        {
+          "title": "VUT · pracovní sešit 2024, PDF str. 17",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=17"
+        }
+      ]
+    },
+    {
+      "number": 60,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "provisional",
+      "note": "A odpovídá historické výukové definici; samotný kryt nenahrazuje dnešní postup bezpečného zajištění pracoviště.",
+      "sources": [
+        {
+          "title": "VUT · skripta 2011, PDF str. 24 · historický podklad",
+          "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=24"
+        }
+      ]
+    },
+    {
+      "number": 61,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "verified",
+      "note": "Součástí zákazové značky bývá i šikmý červený pruh.",
+      "sources": [
+        {
+          "title": "HSE · bezpečnostní značky",
+          "url": "https://www.hse.gov.uk/workplacetransport/safetysigns/index.htm"
+        }
+      ]
+    },
+    {
+      "number": 62,
+      "expectedTestAnswerId": "a",
+      "verificationStatus": "needs_review",
+      "note": "A vystihuje zákonnou povinnost; B zároveň popisuje věcná kritéria. Při jediném správném výběru je formulace nejednoznačná.",
+      "sources": [
+        {
+          "title": "SÚIP · zákonná povinnost stanovit termíny a rozsah kontrol (NV 101/2005)",
+          "url": "https://suip.gov.cz/web/suip/bezpecnost-prace-otazky-a-odpovedi"
+        }
+      ]
+    }
+  ]
+}

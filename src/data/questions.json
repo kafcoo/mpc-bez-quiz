@@ -19,9 +19,17 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Ochrana při poruše odpojí obvod v předepsané době, aby se omezilo nebezpečné dotykové napětí.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Ochrana před úrazem",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím."
+    "note": "Ochrana při poruše; jiné ochrany řeší přetížení a přepětí. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · ochrana před úrazem",
+        "url": "https://www.electrical-installation.org/enwiki/Types_of_protection_against_electric_shock"
+      }
+    ]
   },
   {
     "id": "q2",
@@ -45,7 +53,15 @@
     "explanation": "Žlutá signalizace upozorňuje na abnormální stav vyžadující pozornost.",
     "verificationStatus": "verified",
     "category": "Značení a signalizace",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Jde o signalizaci stavu stroje, nikoli obecně všechny značky. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Rockwell Automation · signalizace podle IEC 60204-1",
+        "url": "https://literature.rockwellautomation.com/idc/groups/literature/documents/pp/800e-pp001_-en-p.pdf"
+      }
+    ]
   },
   {
     "id": "q3",
@@ -69,7 +85,15 @@
     "explanation": "Červená signalizuje nebezpečí nebo nouzový stav vyžadující bezprostřední zásah.",
     "verificationStatus": "verified",
     "category": "Značení a signalizace",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Nouzový stav v uvedené soustavě signalizace. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Rockwell Automation · signalizace podle IEC 60204-1",
+        "url": "https://literature.rockwellautomation.com/idc/groups/literature/documents/pp/800e-pp001_-en-p.pdf"
+      }
+    ]
   },
   {
     "id": "q4",
@@ -93,7 +117,15 @@
     "explanation": "Zelená signalizuje normální, bezpečný stav.",
     "verificationStatus": "verified",
     "category": "Značení a signalizace",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Normální stav v uvedené soustavě signalizace. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Rockwell Automation · signalizace podle IEC 60204-1",
+        "url": "https://literature.rockwellautomation.com/idc/groups/literature/documents/pp/800e-pp001_-en-p.pdf"
+      }
+    ]
   },
   {
     "id": "q5",
@@ -115,9 +147,17 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Bezpečnost výrobku připouští minimální riziko slučitelné s jeho použitím; nejde o absolutní nulové riziko.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Práce a předpisy",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím. Původní znění z roku 2022; aktuální právní a normativní stav nebyl nezávisle ověřen."
+    "note": "A je nejbližší nabízená možnost. Posuzuje se i rozumně předvídatelné použití. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "EUR-Lex · 2023/988, čl. 3 · konsolidace 29. 5. 2026",
+        "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:02023R0988-20260529"
+      }
+    ]
   },
   {
     "id": "q6",
@@ -141,7 +181,15 @@
     "explanation": "SELV i PELV jsou ochranná opatření využívající malé napětí a ochranné oddělení.",
     "verificationStatus": "verified",
     "category": "Ochrana před úrazem",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Omezení 25 V či 60 V není obecnou definicí SELV/PELV. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · SELV a PELV",
+        "url": "https://www.electrical-installation.org/enwiki/Extra_Low_Voltage_(ELV)"
+      }
+    ]
   },
   {
     "id": "q7",
@@ -165,7 +213,19 @@
     "explanation": "Formulace zaměňuje základní ochranu a ochranu při poruše. Doplňující pospojování omezuje rozdíly potenciálů; žádná možnost není bez výhrady.",
     "verificationStatus": "needs_review",
     "category": "Ochrana před úrazem",
-    "note": "Bez oficiálního klíče. Tato otázka se nehodnotí, dokud lokálně nedoplníte ověřenou odpověď."
+    "note": "Terminologicky sporné: pospojování doplňuje ochranu při poruše; výraz základní ochrana v A je zavádějící. Záměr A je pouze odhad. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího. V nových testech se tato otázka nehodnotí.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · ochrana před úrazem",
+        "url": "https://www.electrical-installation.org/enwiki/Types_of_protection_against_electric_shock"
+      },
+      {
+        "title": "IET · ochranné pospojování",
+        "url": "https://electrical.theiet.org/wiring-matters/years/2019/76-july-2019/protective-bonding-habits/"
+      }
+    ]
   },
   {
     "id": "q8",
@@ -187,9 +247,17 @@
     ],
     "correctAnswerId": "a",
     "explanation": "První písmeno T znamená přímé uzemnění bodu zdroje. Z uvedených možností tomu odpovídá TN, ale stejný znak má i síť TT.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Sítě a vodiče",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím."
+    "note": "Mezi nabídnutými možnostmi A; přímo uzemněný zdroj má také TT. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · soustavy uzemnění",
+        "url": "https://www.electrical-installation.org/enwiki/Definition_of_standardised_earthing_schemes"
+      }
+    ]
   },
   {
     "id": "q9",
@@ -213,7 +281,19 @@
     "explanation": "Přemisťování pod napětím je přípustné jen u zařízení k tomu konstrukčně určeného.",
     "verificationStatus": "provisional",
     "category": "Ochrana před úrazem",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím."
+    "note": "A odpovídá bezpečnostnímu principu; citované stránky nedokládají přesnou obecnou výjimku pro každý přístroj. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího. V nových testech se tato otázka nehodnotí.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · skripta 2011, PDF str. 15 · historický podklad",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=15"
+      },
+      {
+        "title": "HSE · kontrola před použitím a vyřazení poškozeného zařízení",
+        "url": "https://www.hse.gov.uk/electricity/introduction.htm"
+      }
+    ]
   },
   {
     "id": "q10",
@@ -235,9 +315,17 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Bezprostřední ohrožení vyžaduje odpojení a zajištění proti opětovnému zapnutí.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Ochrana před úrazem",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím."
+    "note": "Nebezpečný provoz se neřeší jen tabulkou či kvalifikovanou obsluhou. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "HSE · kontrola před použitím a vyřazení poškozeného zařízení",
+        "url": "https://www.hse.gov.uk/electricity/introduction.htm"
+      }
+    ]
   },
   {
     "id": "q11",
@@ -261,7 +349,15 @@
     "explanation": "V běžné síti nn je 230 V mezi fází a středním vodičem a 400 V mezi fázemi.",
     "verificationStatus": "verified",
     "category": "Sítě a vodiče",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Fázové a sdružené napětí běžné distribuční sítě. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 4",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=4"
+      }
+    ]
   },
   {
     "id": "q12",
@@ -283,9 +379,17 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Uživatel před použitím kontroluje zejména viditelná poškození; kontrola nenahrazuje revizi.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Kontroly a revize",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím."
+    "note": "Uživatelská kontrola před použitím se liší od odborné revize. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "HSE · kontrola před použitím a vyřazení poškozeného zařízení",
+        "url": "https://www.hse.gov.uk/electricity/introduction.htm"
+      }
+    ]
   },
   {
     "id": "q13",
@@ -307,9 +411,25 @@
     ],
     "correctAnswerId": "a",
     "explanation": "§ 6 NV 194/2022 Sb. upravuje elektrotechnika pro samostatnou činnost v rozsahu jeho odborné způsobilosti.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Práce a předpisy",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím. Původní znění z roku 2022; aktuální právní a normativní stav nebyl nezávisle ověřen."
+    "note": "§ 6 elektrotechnik; § 7 řízení činnosti. Výklad musí respektovat rozsah způsobilosti. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 7",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=7"
+      },
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 8",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+      },
+      {
+        "title": "e-Sbírka · NV 194/2022 (kanonický odkaz; rozhodující rozsah kvalifikace)",
+        "url": "https://e-sbirka.gov.cz/sb/2022/194"
+      }
+    ]
   },
   {
     "id": "q14",
@@ -331,9 +451,25 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Obvyklá horní mez malého napětí je 50 V AC nebo 120 V DC; konkrétní prostředí může vyžadovat nižší hodnoty.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Ochrana před úrazem",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím."
+    "note": "Platí v kontextu otázky; neplést s přímým dotykem živých částí. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · ochrana před úrazem",
+        "url": "https://www.electrical-installation.org/enwiki/Types_of_protection_against_electric_shock"
+      },
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 16",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=16"
+      },
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 17",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=17"
+      }
+    ]
   },
   {
     "id": "q15",
@@ -357,7 +493,15 @@
     "explanation": "PEN současně plní ochrannou i střední funkci; jeho mechanická spolehlivost vyžaduje nejméně 10 mm² Cu nebo 16 mm² Al.",
     "verificationStatus": "verified",
     "category": "Sítě a vodiče",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Minimální průřez není libovolnou volbou barvy nebo způsobu vedení. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · minimální průřez PE/PEN",
+        "url": "https://www.electrical-installation.org/enwiki/Sizing_of_protective_earthing_conductor"
+      }
+    ]
   },
   {
     "id": "q16",
@@ -381,7 +525,15 @@
     "explanation": "PELV dovoluje uzemnění; SELV je od země odděleno.",
     "verificationStatus": "verified",
     "category": "Ochrana před úrazem",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "PELV dovoluje spojení se zemí. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · SELV a PELV",
+        "url": "https://www.electrical-installation.org/enwiki/Extra_Low_Voltage_(ELV)"
+      }
+    ]
   },
   {
     "id": "q17",
@@ -403,9 +555,21 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Osoba poučená může na zařízení nn bez napětí pracovat podle pokynů a v rozsahu svého poučení.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Práce a předpisy",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím. Původní znění z roku 2022; aktuální právní a normativní stav nebyl nezávisle ověřen."
+    "note": "Podle pokynů a jen v rozsahu poučení. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 8",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+      },
+      {
+        "title": "e-Sbírka · NV 194/2022 (kanonický odkaz; rozhodující rozsah kvalifikace)",
+        "url": "https://e-sbirka.gov.cz/sb/2022/194"
+      }
+    ]
   },
   {
     "id": "q18",
@@ -427,9 +591,17 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Nebezpečný výrobek nesplňuje požadavky na bezpečný výrobek. Samotná existence minimálního rizika ještě neznamená nebezpečný výrobek.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Práce a předpisy",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím. Původní znění z roku 2022; aktuální právní a normativní stav nebyl nezávisle ověřen."
+    "note": "Definice nebezpečného výrobku navazuje na definici bezpečného. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "EUR-Lex · 2023/988, čl. 3 · konsolidace 29. 5. 2026",
+        "url": "https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:02023R0988-20260529"
+      }
+    ]
   },
   {
     "id": "q19",
@@ -449,11 +621,23 @@
         "text": "ve lhůtách stanovených místním technickým předpisem"
       }
     ],
-    "correctAnswerId": null,
-    "explanation": "Lhůty revizí závisí na konkrétním spotřebiči, způsobu připojení, použití a předpisech. Obecné znění nedovoluje jednoznačné určení.",
-    "verificationStatus": "needs_review",
+    "correctAnswerId": "a",
+    "explanation": "Pro starší test je první možnost doložena historickou předmluvou ČSN 33 1610. Dnešní použitelný předpis je nutné určit podle zařízení.",
+    "verificationStatus": "provisional",
     "category": "Kontroly a revize",
-    "note": "Bez oficiálního klíče. Tato otázka se nehodnotí, dokud lokálně nedoplníte ověřenou odpověď."
+    "note": "A je výslovně doloženo ve starší normě. Nelze tak bez dalšího určovat dnešní revize všech nepřenosných spotřebičů. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího. V nových testech se tato otázka nehodnotí.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "ČAS · historická ČSN 33 1610:2005, předmluva",
+        "url": "https://csnonlinefirmy.agentura-cas.cz/html_nahledy/33/71705/71705_nahled.htm"
+      },
+      {
+        "title": "ČAS · náhrady ČSN 33 1600 ed. 2 a ČSN 33 1610",
+        "url": "https://csnonlinefirmy.agentura-cas.cz/Detail.aspx?k=84306"
+      }
+    ]
   },
   {
     "id": "q20",
@@ -477,7 +661,19 @@
     "explanation": "U SELV se vyžaduje ochranné oddělení od jiných obvodů a základní izolace mezi živými částmi a zemí; živé části se úmyslně neuzemňují.",
     "verificationStatus": "provisional",
     "category": "Ochrana před úrazem",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím."
+    "note": "Očekáváno A. Zdroj potvrzuje oddělení SELV od země, ale přesná úroveň izolace z této zkratky neplyne; vyžaduje konkrétní článek normy. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího. V nových testech se tato otázka nehodnotí.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · SELV a PELV",
+        "url": "https://www.electrical-installation.org/enwiki/Extra_Low_Voltage_(ELV)"
+      },
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 22",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=22"
+      }
+    ]
   },
   {
     "id": "q21",
@@ -497,11 +693,19 @@
         "text": "20 Ohmů"
       }
     ],
-    "correctAnswerId": null,
-    "explanation": "Hodnota závisí na konkrétní soustavě, podmínkách a použité normě; bez kontextu nelze určit univerzální limit.",
-    "verificationStatus": "needs_review",
+    "correctAnswerId": "a",
+    "explanation": "Ve výukovém příkladu sítě TN je uvedeno 5 Ω, při obtížných podmínkách nejvýše 15 Ω. Kontext soustavy v otázce chybí.",
+    "verificationStatus": "provisional",
     "category": "Sítě a vodiče",
-    "note": "Bez oficiálního klíče. Tato otázka se nehodnotí, dokud lokálně nedoplníte ověřenou odpověď."
+    "note": "A doloženo pro popsanou síť TN; otázka soustavu výslovně neuvádí. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího. V nových testech se tato otázka nehodnotí.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · skripta 2011, PDF str. 47 · historický podklad",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=47"
+      }
+    ]
   },
   {
     "id": "q22",
@@ -523,9 +727,21 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Odpojení musí odpovídat soustavě uzemnění a vypínacím charakteristikám ochranného přístroje.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Ochrana před úrazem",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím."
+    "note": "Koordinace uzemnění sítě a vypínacích vlastností přístroje. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · ochrana před úrazem",
+        "url": "https://www.electrical-installation.org/enwiki/Types_of_protection_against_electric_shock"
+      },
+      {
+        "title": "Schneider Electric · výchozí a pravidelná revize",
+        "url": "https://www.electrical-installation.org/enwiki/Quality_and_safety_of_an_electrical_installation"
+      }
+    ]
   },
   {
     "id": "q23",
@@ -546,10 +762,18 @@
       }
     ],
     "correctAnswerId": "a",
-    "explanation": "PE může být holý a samostatně vedený, pokud splní podmínky pro kontinuitu, ochranu a impedanci poruchové smyčky.",
+    "explanation": "Samostatně vedený PE může být holý nebo izolovaný. Přípustná trasa závisí na soustavě a zajištění ochrany, nejde o univerzální pravidlo.",
     "verificationStatus": "provisional",
     "category": "Sítě a vodiče",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím."
+    "note": "A může platit; samostatná trasa závisí na soustavě, ochraně a impedanci smyčky. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího. V nových testech se tato otázka nehodnotí.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · provedení a vedení PE",
+        "url": "https://www.electrical-installation.org/enwiki/Connection_and_choice_for_protective_earthing_conductor"
+      }
+    ]
   },
   {
     "id": "q24",
@@ -571,9 +795,21 @@
     ],
     "correctAnswerId": "a",
     "explanation": "U vn je pro práci poučené osoby v blízkosti nekrytých živých částí požadován dozor osoby znalé.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Práce a předpisy",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím. Původní znění z roku 2022; aktuální právní a normativní stav nebyl nezávisle ověřen."
+    "note": "Dozor není totéž co občasný dohled. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 8",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+      },
+      {
+        "title": "e-Sbírka · NV 194/2022 (kanonický odkaz; rozhodující rozsah kvalifikace)",
+        "url": "https://e-sbirka.gov.cz/sb/2022/194"
+      }
+    ]
   },
   {
     "id": "q25",
@@ -595,9 +831,21 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Poučená osoba při takové práci nn potřebuje dohled osoby znalé; konkrétní podmínky určí pracovní postup.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Práce a předpisy",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím. Původní znění z roku 2022; aktuální právní a normativní stav nebyl nezávisle ověřen."
+    "note": "Dohled osoby znalé a bezpečná vzdálenost. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 8",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+      },
+      {
+        "title": "e-Sbírka · NV 194/2022 (kanonický odkaz; rozhodující rozsah kvalifikace)",
+        "url": "https://e-sbirka.gov.cz/sb/2022/194"
+      }
+    ]
   },
   {
     "id": "q26",
@@ -619,9 +867,21 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Znalá osoba může v rozsahu své způsobilosti pracovat samostatně při dodržení bezpečných pracovních postupů.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Práce a předpisy",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím. Původní znění z roku 2022; aktuální právní a normativní stav nebyl nezávisle ověřen."
+    "note": "Samostatnost jen v rozsahu kvalifikace a mimo zvláštní rizikové případy. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 8",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+      },
+      {
+        "title": "e-Sbírka · NV 194/2022 (kanonický odkaz; rozhodující rozsah kvalifikace)",
+        "url": "https://e-sbirka.gov.cz/sb/2022/194"
+      }
+    ]
   },
   {
     "id": "q27",
@@ -645,7 +905,15 @@
     "explanation": "Svorky fázových vinutí elektrických strojů se označují U, V a W.",
     "verificationStatus": "verified",
     "category": "Sítě a vodiče",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Značení svorek odlišit od L1/L2/L3 pro vodiče. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 5",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+      }
+    ]
   },
   {
     "id": "q28",
@@ -669,7 +937,15 @@
     "explanation": "Plynové potrubí nesmí sloužit jako ochranný vodič; jeho pospojování je jiná funkce.",
     "verificationStatus": "verified",
     "category": "Sítě a vodiče",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Plynové potrubí se může pospojovat; neslouží jako PE. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · provedení a vedení PE",
+        "url": "https://www.electrical-installation.org/enwiki/Connection_and_choice_for_protective_earthing_conductor"
+      }
+    ]
   },
   {
     "id": "q29",
@@ -691,9 +967,17 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Z uvedených možností práci vystihuje používání nástrojů s možností kontaktu se živými částmi; přesná definice je širší.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Práce a předpisy",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím. Původní znění z roku 2022; aktuální právní a normativní stav nebyl nezávisle ověřen."
+    "note": "Doložení výukové definice; není to úplný výčet všech pracovních činností. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · skripta 2011, PDF str. 24 · historický podklad",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=24"
+      }
+    ]
   },
   {
     "id": "q30",
@@ -713,11 +997,23 @@
         "text": "pro napětí nad 22 kV"
       }
     ],
-    "correctAnswerId": null,
-    "explanation": "Přípustnost práce pod napětím závisí na metodě, prostředí, kvalifikaci a pracovním postupu; kategorickou odpověď ověřte s vyučujícím.",
-    "verificationStatus": "needs_review",
+    "correctAnswerId": "a",
+    "explanation": "Starší skripta výslovně odpovídají první možnosti. Rozhodující jsou vždy konkrétní bezpečnostní podmínky.",
+    "verificationStatus": "provisional",
     "category": "Práce a předpisy",
-    "note": "Bez oficiálního klíče. Tato otázka se nehodnotí, dokud lokálně nedoplníte ověřenou odpověď."
+    "note": "A je doslovně doloženo ve starších skriptech; novější materiál popisuje rizikové podmínky podrobněji. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího. V nových testech se tato otázka nehodnotí.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · skripta 2011, PDF str. 27 · historický podklad",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=27"
+      },
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 8",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+      }
+    ]
   },
   {
     "id": "q31",
@@ -737,11 +1033,23 @@
         "text": "pracovník znalý podle pokynů pracovníka znalého s vyšší kvalifikací"
       }
     ],
-    "correctAnswerId": null,
-    "explanation": "Otázka používá starší kvalifikační pojmy a nerozlišuje organizaci práce; ověřte požadovanou odpověď s vyučujícím.",
-    "verificationStatus": "needs_review",
+    "correctAnswerId": "a",
+    "explanation": "První možnost odpovídá historickému rozlišení pracovníka znalého a znalého s vyšší kvalifikací. Současné kategorie nelze zaměňovat.",
+    "verificationStatus": "provisional",
     "category": "Práce a předpisy",
-    "note": "Bez oficiálního klíče. Tato otázka se nehodnotí, dokud lokálně nedoplníte ověřenou odpověď. Původní znění z roku 2022; aktuální právní a normativní stav nebyl nezávisle ověřen."
+    "note": "A odpovídá starším kategoriím kvalifikace; nepřevádět bez výhrady na dnešní § 6 a § 7. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího. V nových testech se tato otázka nehodnotí.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · skripta 2011, PDF str. 25 · historický podklad",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=25"
+      },
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 8",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+      }
+    ]
   },
   {
     "id": "q32",
@@ -763,9 +1071,17 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Práce pod napětím vyžaduje odpovídající pracovní i ochranné pomůcky podle použité metody.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Práce a předpisy",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím."
+    "note": "Výuková definice práce pod napětím včetně pomůcek. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · skripta 2011, PDF str. 24 · historický podklad",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=24"
+      }
+    ]
   },
   {
     "id": "q33",
@@ -787,9 +1103,17 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Práce podle pokynů má určeny nejnutnější pokyny; liší se od trvalého dohledu a dozoru.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Práce a předpisy",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím."
+    "note": "Výukové rozlišení pokynů, dohledu a dozoru. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · skripta 2011, PDF str. 24 · historický podklad",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=24"
+      }
+    ]
   },
   {
     "id": "q34",
@@ -813,7 +1137,19 @@
     "explanation": "Znalá osoba může pracovat v blízkosti živých částí nn podle bezpečného pracovního postupu; uvedená vzdálenost sama o sobě neopravňuje k dotyku.",
     "verificationStatus": "provisional",
     "category": "Práce a předpisy",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím. Původní znění z roku 2022; aktuální právní a normativní stav nebyl nezávisle ověřen."
+    "note": "A v historickém kontextu; 20 cm není univerzální současné oprávnění k práci u živých částí. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího. V nových testech se tato otázka nehodnotí.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · skripta 2011, PDF str. 25 · historický podklad",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=25"
+      },
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 8",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+      }
+    ]
   },
   {
     "id": "q35",
@@ -835,9 +1171,17 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Pokyn odporující bezpečnostním předpisům nesmí pracovník vykonat ani na písemný příkaz.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Práce a předpisy",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím."
+    "note": "Písemný pokyn ani vlastní riziko neospravedlňují nebezpečný nezákonný postup. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · skripta 2011, PDF str. 23 · historický podklad",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=23"
+      }
+    ]
   },
   {
     "id": "q36",
@@ -859,9 +1203,17 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Pravidelná revize posuzuje bezpečnost a odhaluje závady vzniklé používáním a stárnutím instalace.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Kontroly a revize",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím."
+    "note": "Revize zohledňuje i zhoršení stavu během provozu. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · výchozí a pravidelná revize",
+        "url": "https://www.electrical-installation.org/enwiki/Quality_and_safety_of_an_electrical_installation"
+      }
+    ]
   },
   {
     "id": "q37",
@@ -882,10 +1234,22 @@
       }
     ],
     "correctAnswerId": null,
-    "explanation": "Limity dotykového proudu závisejí na druhu ochrany, normě a průběhu proudu. Bez přesného normativního kontextu ponecháno k revizi.",
+    "explanation": "První možnost odpovídá historickému meznímu údaji. Bez rozlišení normálních a poruchových podmínek ji nelze bezvýhradně hodnotit.",
     "verificationStatus": "needs_review",
     "category": "Ochrana před úrazem",
-    "note": "Bez oficiálního klíče. Tato otázka se nehodnotí, dokud lokálně nedoplníte ověřenou odpověď."
+    "note": "A odpovídá historické mezní hodnotě a poruchovým/specifickým podmínkám. Novější materiál pro normální podmínky uvádí 0,5 mA AC / 2 mA DC; kontext v otázce chybí. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího. V nových testech se tato otázka nehodnotí.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · skripta 2011, PDF str. 40 · historický podklad",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=40"
+      },
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 17",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=17"
+      }
+    ]
   },
   {
     "id": "q38",
@@ -907,9 +1271,17 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Běžný prodlužovací přívod pro zásuvkový rozvod zachovává ochranný vodič i ochranné kontakty. PE se nespojuje s pracovním kontaktem v zásuvce.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Sítě a vodiče",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím."
+    "note": "Doložené provedení běžného prodlužovacího přívodu pro zásuvkový rozvod. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · skripta 2011, PDF str. 16 · historický podklad",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=16"
+      }
+    ]
   },
   {
     "id": "q39",
@@ -933,7 +1305,19 @@
     "explanation": "První číslice IP vyjadřuje ochranu před přístupem k nebezpečným částem a vniknutím pevných těles; druhá se týká vody.",
     "verificationStatus": "verified",
     "category": "Ochrana před úrazem",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "První číslice zahrnuje přístup k nebezpečným částem. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · IP a IK",
+        "url": "https://www.electrical-installation.org/enwiki/Protection_provided_for_enclosed_equipment:_codes_IP_and_IK"
+      },
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 15",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=15"
+      }
+    ]
   },
   {
     "id": "q40",
@@ -955,9 +1339,17 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Před použitím je třeba zkontrolovat stav a použitelnost ochranných pomůcek.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Kontroly a revize",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím."
+    "note": "Kontrola řádného stavu před použitím pomůcky. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · skripta 2011, PDF str. 29 · historický podklad",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=29"
+      }
+    ]
   },
   {
     "id": "q41",
@@ -978,10 +1370,22 @@
       }
     ],
     "correctAnswerId": "a",
-    "explanation": "Oddělovací transformátor zajišťuje ochranné elektrické oddělení; autotransformátor oddělení nezajišťuje.",
+    "explanation": "Oddělovací transformátor je běžný vhodný zdroj. Jeho výlučnou nezbytnost však obecná definice elektrického oddělení nestanoví.",
     "verificationStatus": "provisional",
     "category": "Ochrana před úrazem",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím."
+    "note": "A je běžné řešení; formulace musí je příliš výlučná, existují i ekvivalentní oddělené zdroje. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího. V nových testech se tato otázka nehodnotí.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · elektrické oddělení",
+        "url": "https://www.electrical-installation.org/enwiki/The_electrical_separation_of_circuits"
+      },
+      {
+        "title": "VUT · skripta 2011, PDF str. 52 · historický podklad",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=52"
+      }
+    ]
   },
   {
     "id": "q42",
@@ -1003,9 +1407,17 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Při práci podle pokynů odpovídá za jejich dodržení pracující osoba.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Práce a předpisy",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím."
+    "note": "Odpovědnost pracujícího v uvedeném rozlišení; nezbavuje zaměstnavatele ostatních povinností. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · skripta 2011, PDF str. 24 · historický podklad",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=24"
+      }
+    ]
   },
   {
     "id": "q43",
@@ -1029,7 +1441,15 @@
     "explanation": "Přídavná izolace je nezávislá na základní izolaci a doplňuje ji pro případ poruchy.",
     "verificationStatus": "verified",
     "category": "Ochrana před úrazem",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Přídavná izolace doplňuje základní. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 22",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=22"
+      }
+    ]
   },
   {
     "id": "q44",
@@ -1053,7 +1473,15 @@
     "explanation": "Příkazová značka je modrý kruh s bílým piktogramem požadované činnosti.",
     "verificationStatus": "verified",
     "category": "Značení a signalizace",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Příkazový tvar a barevnost. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "HSE · bezpečnostní značky",
+        "url": "https://www.hse.gov.uk/workplacetransport/safetysigns/index.htm"
+      }
+    ]
   },
   {
     "id": "q45",
@@ -1077,7 +1505,15 @@
     "explanation": "Střední vodič stejnosměrné soustavy nese označení M.",
     "verificationStatus": "verified",
     "category": "Sítě a vodiče",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Střed stejnosměrné soustavy M. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 5",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+      }
+    ]
   },
   {
     "id": "q46",
@@ -1101,7 +1537,19 @@
     "explanation": "IP X4 znamená ochranu proti vodě stříkající ze všech směrů; X neudává stupeň ochrany proti pevným tělesům.",
     "verificationStatus": "verified",
     "category": "Ochrana před úrazem",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Druhá číslice 4: stříkající voda. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 15",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=15"
+      },
+      {
+        "title": "Schneider Electric · IP a IK",
+        "url": "https://www.electrical-installation.org/enwiki/Protection_provided_for_enclosed_equipment:_codes_IP_and_IK"
+      }
+    ]
   },
   {
     "id": "q47",
@@ -1125,7 +1573,15 @@
     "explanation": "PE označuje ochranný vodič a jeho svorku.",
     "verificationStatus": "verified",
     "category": "Sítě a vodiče",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Svorka PE; odlišit od PEN a N. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 5",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+      }
+    ]
   },
   {
     "id": "q48",
@@ -1149,7 +1605,15 @@
     "explanation": "Konkrétní technické požadavky na stanovené výrobky stanovují příslušná prováděcí nařízení vlády.",
     "verificationStatus": "provisional",
     "category": "Práce a předpisy",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím. Původní znění z roku 2022; aktuální právní a normativní stav nebyl nezávisle ověřen."
+    "note": "A odpovídá historickému rámci stanovených výrobků; dnešní předpis závisí i na odvětví a přímo použitelném právu EU. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího. V nových testech se tato otázka nehodnotí.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · skripta 2011, PDF str. 21 · historický podklad",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=21"
+      }
+    ]
   },
   {
     "id": "q49",
@@ -1171,9 +1635,17 @@
     ],
     "correctAnswerId": "a",
     "explanation": "Směrnice EU se transponují do vnitrostátních předpisů, zatímco nařízení EU jsou přímo použitelná.",
-    "verificationStatus": "provisional",
+    "verificationStatus": "verified",
     "category": "Práce a předpisy",
-    "note": "Pracovní návrh odpovědi podle významu otázky. Nejde o oficiální klíč; ověřte s vyučujícím. Původní znění z roku 2022; aktuální právní a normativní stav nebyl nezávisle ověřen."
+    "note": "Směrnice se transponují; nařízení EU se přímo použijí. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Evropská komise · směrnice a nařízení",
+        "url": "https://commission.europa.eu/law/law-making-process/types-eu-law_en"
+      }
+    ]
   },
   {
     "id": "q50",
@@ -1197,7 +1669,19 @@
     "explanation": "Přerušení PEN by současně přerušilo ochrannou funkci; PEN se nesmí spínat ani samostatně jistit.",
     "verificationStatus": "verified",
     "category": "Sítě a vodiče",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Ochranná funkce PEN nesmí být přerušena. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · kontinuita PEN v TN-C",
+        "url": "https://www.electrical-installation.org/enwiki/Sizing_the_neutral_conductor"
+      },
+      {
+        "title": "Schneider Electric · provedení a vedení PE",
+        "url": "https://www.electrical-installation.org/enwiki/Connection_and_choice_for_protective_earthing_conductor"
+      }
+    ]
   },
   {
     "id": "q51",
@@ -1221,7 +1705,19 @@
     "explanation": "V TT jsou neživé části spojeny s místním uzemněním, nikoli s nulovým vodičem zdroje.",
     "verificationStatus": "verified",
     "category": "Sítě a vodiče",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "V TT se nespojují neživé části s N; ochranné uzemnění je samostatné. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · soustavy uzemnění",
+        "url": "https://www.electrical-installation.org/enwiki/Definition_of_standardised_earthing_schemes"
+      },
+      {
+        "title": "Schneider Electric · provedení a vedení PE",
+        "url": "https://www.electrical-installation.org/enwiki/Connection_and_choice_for_protective_earthing_conductor"
+      }
+    ]
   },
   {
     "id": "q52",
@@ -1245,7 +1741,15 @@
     "explanation": "Nezáměnnost brání připojení obvodu malého napětí k vyššímu napětí.",
     "verificationStatus": "verified",
     "category": "Ochrana před úrazem",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Nezáměnnost s jinými napětími. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · SELV a PELV",
+        "url": "https://www.electrical-installation.org/enwiki/Extra_Low_Voltage_(ELV)"
+      }
+    ]
   },
   {
     "id": "q53",
@@ -1269,7 +1773,19 @@
     "explanation": "Střední (nulový) vodič N je označen světle modrou barvou.",
     "verificationStatus": "verified",
     "category": "Sítě a vodiče",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Barva nulového vodiče N. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · N a PEN",
+        "url": "https://www.electrical-installation.org/enwiki/The_neutral_conductor"
+      },
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 5",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+      }
+    ]
   },
   {
     "id": "q54",
@@ -1293,7 +1809,15 @@
     "explanation": "Ochrannému vodiči PE přísluší zelenožlutá kombinace.",
     "verificationStatus": "verified",
     "category": "Sítě a vodiče",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Zelenožlutá kombinace PE. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 5",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+      }
+    ]
   },
   {
     "id": "q55",
@@ -1317,7 +1841,19 @@
     "explanation": "PEN je při tomto způsobu označení zelenožlutý po délce s doplňkovým světle modrým označením na koncích.",
     "verificationStatus": "verified",
     "category": "Sítě a vodiče",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "A je správné nabízené provedení; existují normativně přípustné varianty označení. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · N a PEN",
+        "url": "https://www.electrical-installation.org/enwiki/The_neutral_conductor"
+      },
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 5",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+      }
+    ]
   },
   {
     "id": "q56",
@@ -1341,7 +1877,15 @@
     "explanation": "Pro fáze jsou vyhrazeny hnědá, černá a šedá; světle modrá je určena pro N.",
     "verificationStatus": "verified",
     "category": "Sítě a vodiče",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Hnědá, černá a šedá; barvy neurčují samy sled fází. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 5",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+      }
+    ]
   },
   {
     "id": "q57",
@@ -1365,7 +1909,15 @@
     "explanation": "Výchozí revize zahrnuje prohlídku, zkoušení a dokumentování výsledků revizní zprávou.",
     "verificationStatus": "verified",
     "category": "Kontroly a revize",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Zpráva je součástí výstupu ověření. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "Schneider Electric · výchozí a pravidelná revize",
+        "url": "https://www.electrical-installation.org/enwiki/Quality_and_safety_of_an_electrical_installation"
+      }
+    ]
   },
   {
     "id": "q58",
@@ -1389,7 +1941,15 @@
     "explanation": "Výstraha má žluté pole a černý okraj ve tvaru trojúhelníka.",
     "verificationStatus": "verified",
     "category": "Značení a signalizace",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Výstražný tvar a barevnost. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "HSE · bezpečnostní značky",
+        "url": "https://www.hse.gov.uk/workplacetransport/safetysigns/index.htm"
+      }
+    ]
   },
   {
     "id": "q59",
@@ -1410,10 +1970,26 @@
       }
     ],
     "correctAnswerId": null,
-    "explanation": "Otázka neuvádí normu, druh prostředí ani dobu odpojení. Uvedené limity nelze bezpečně zobecnit; ověřte původní testový klíč.",
+    "explanation": "První možnost je dohledatelná ve starší výukové tabulce. Nejde o obecně platnou současnou mez bez dalšího kontextu.",
     "verificationStatus": "needs_review",
     "category": "Ochrana před úrazem",
-    "note": "Bez oficiálního klíče. Tato otázka se nehodnotí, dokud lokálně nedoplníte ověřenou odpověď."
+    "note": "A je doloženo ve staré tabulce; novější podklady rozlišují jiné podmínky. Bez určení normy není 25 V univerzální současná mez. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího. V nových testech se tato otázka nehodnotí.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · skripta 2011, PDF str. 45 · historický podklad",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=45"
+      },
+      {
+        "title": "Schneider Electric · ochrana před úrazem",
+        "url": "https://www.electrical-installation.org/enwiki/Types_of_protection_against_electric_shock"
+      },
+      {
+        "title": "VUT · pracovní sešit 2024, PDF str. 17",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=17"
+      }
+    ]
   },
   {
     "id": "q60",
@@ -1433,11 +2009,19 @@
         "text": "chránícím před nahodilým dotykem, přičemž kryt musí být z izolantu"
       }
     ],
-    "correctAnswerId": null,
-    "explanation": "Znění závisí na starší definici práce bez napětí a požadavcích na kryt. Správný pracovní postup zahrnuje také zajištění a ověření beznapěťového stavu.",
-    "verificationStatus": "needs_review",
+    "correctAnswerId": "a",
+    "explanation": "Historická výuková definice používá kryt chránící před úmyslným dotykem, tedy první možnost. Nelze ji zaměnit s úplným pracovním postupem.",
+    "verificationStatus": "provisional",
     "category": "Práce a předpisy",
-    "note": "Bez oficiálního klíče. Tato otázka se nehodnotí, dokud lokálně nedoplníte ověřenou odpověď. Původní znění z roku 2022; aktuální právní a normativní stav nebyl nezávisle ověřen."
+    "note": "A odpovídá historické výukové definici; samotný kryt nenahrazuje dnešní postup bezpečného zajištění pracoviště. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího. V nových testech se tato otázka nehodnotí.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "VUT · skripta 2011, PDF str. 24 · historický podklad",
+        "url": "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=24"
+      }
+    ]
   },
   {
     "id": "q61",
@@ -1461,7 +2045,15 @@
     "explanation": "Zákazová značka je kruhová, bílá s červeným okrajem a obvykle červeným šikmým pruhem.",
     "verificationStatus": "verified",
     "category": "Značení a signalizace",
-    "note": "Odborně posouzený základní princip, nikoli oficiální testový klíč."
+    "note": "Součástí zákazové značky bývá i šikmý červený pruh. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "HSE · bezpečnostní značky",
+        "url": "https://www.hse.gov.uk/workplacetransport/safetysigns/index.htm"
+      }
+    ]
   },
   {
     "id": "q62",
@@ -1482,9 +2074,17 @@
       }
     ],
     "correctAnswerId": null,
-    "explanation": "Povinnost zaměstnavatele i vyhodnocení rizik jsou relevantní. Rozsah a lhůty závisejí také na právních a provozních požadavcích; otázka je nejednoznačná.",
+    "explanation": "Zákonná povinnost je doložena, ale rizika také ovlivňují rozsah a lhůty. Jedinou správnou možnost bez potvrzení autora neurčuji.",
     "verificationStatus": "needs_review",
     "category": "Práce a předpisy",
-    "note": "Bez oficiálního klíče. Tato otázka se nehodnotí, dokud lokálně nedoplníte ověřenou odpověď. Původní znění z roku 2022; aktuální právní a normativní stav nebyl nezávisle ověřen."
+    "note": "A vystihuje zákonnou povinnost; B zároveň popisuje věcná kritéria. Při jediném správném výběru je formulace nejednoznačná. Kontrola 8. 11. 2026. Nejde o oficiální klíč vyučujícího. V nových testech se tato otázka nehodnotí.",
+    "expectedTestAnswerId": "a",
+    "reviewedAt": "2026-11-08",
+    "sources": [
+      {
+        "title": "SÚIP · zákonná povinnost stanovit termíny a rozsah kontrol (NV 101/2005)",
+        "url": "https://suip.gov.cz/web/suip/bezpecnost-prace-otazky-a-odpovedi"
+      }
+    ]
   }
 ]
