@@ -1,5 +1,8 @@
 # Historická kontrola všech 62 otázek MPC-BEZ
 
+> **Nahrazeno kontrolou 10. 11. 2026:** [aktuální posouzení všech 62 otázek](kontrola-2026-11-10.md). Tento dokument je historický; jeho klíče a počty již nepopisují současné hodnocení.
+
+
 > Tento dokument zachycuje předchozí kontrolu a tehdejší pravidla hodnocení. Aktuální aplikace používá dodaný [MPC-BEZ_otazky_klic.json](../src/data/MPC-BEZ_otazky_klic.json) a jeho `answerStatus`. Níže uvedené počty 47/11/4 ani pravidlo nehodnocení 15 otázek již nejsou pravidly aplikace. Aktuálně se 61 odpovědí hodnotí jako předběžný pracovní klíč a otázka 7 (`needs_review`) se nehodnotí.
 
 Datum: 8. 11. 2026

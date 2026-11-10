@@ -25,21 +25,23 @@ Aplikace běží na http://127.0.0.1:5173. Pro ověření produkční verze spus
 - JSON export/import postupu s kontrolou verze a struktury, export kompletní aktuální databáze, reset s potvrzením.
 - Tmavý a světlý režim (na telefonu v Nastavení), klávesy 1–3 a Enter, dialogy s uzavřeným cyklem fokusu a Escape, omezení animací podle systému.
 
-## Primární databáze a pracovní klíč
+## Databáze a kontrola klíče 10. 11. 2026
 
-Primární databází je dodaný [MPC-BEZ_otazky_klic.json](src/data/MPC-BEZ_otazky_klic.json), uložený beze změny. [Doprovodné poznámky](docs/MPC-BEZ_otazky_klic.md) zachycují výhrady ke klíči. Všech 62 otázek a všech 186 možností se používá v přesném znění JSONu, včetně původních ID. PDF se znovu neextrahuje a build ani testy jej nepotřebují.
+Primární databází zůstává [MPC-BEZ_otazky_klic.json](src/data/MPC-BEZ_otazky_klic.json). Znění všech 62 otázek a 186 možností i jejich ID zůstává přesně původní. PDF se znovu neextrahuje. Klíče, stavy a zdůvodnění byly revidovány proti veřejným primárním zdrojům: [úplná kontrola 62 položek](docs/kontrola-2026-11-10.md), [strojový záznam kontroly](src/data/review-2026-11-10.json).
 
-Aplikace respektuje pole `answerStatus`:
+- `verified`: **46** odpovědí s oporou pro výběr mezi původními možnostmi. Štítek „Doloženo zdrojem“ není oficiální klíč pedagoga ani potvrzení současné platnosti všech historických formulací.
+- `provisional_ambiguous`: **9** podmíněných pracovních klíčů (8, 9, 19, 21, 23, 30, 31, 34, 48). Výhrada a zdroj jsou u každé otázky. Hodnotí se podle uvedeného ID.
+- `needs_review`: **7** položek (7, 20, 37, 41, 59, 60, 62) bez správného či chybného hodnocení, bez vlivu na úspěšnost a opakovací intervaly.
 
-- `provisional`: 45 předběžných odpovědí.
-- `provisional_ambiguous`: 16 předběžných nejednoznačných odpovědí s konkrétní výhradou v `answerNote`.
-- `needs_review`: otázka 7. Nikdy se nehodnotí jako správná ani chybná, ani pokud někdo doplní neprázdné `correctAnswerId` bez změny stavu. Neovlivní úspěšnost, intervaly ani počet hodnocených pokusů.
+**Návrhy změn 20 → ID 3 a 60 → ID 2 jsou uloženy, ale odporují citovaným materiálům VUT.** Proto mají stav needs_review. Pole `sourceSupportedAnswerId` u nich zachycuje ID 1 podporované zdroji; rozhraní ukazuje oba závěry odděleně. Otázka 20 zaměňuje oddělení od země s oddělením od jiných obvodů. U 60 starší skripta odlišují úmyslný dotyk (práce bez napětí) a nahodilý dotyk (práce v blízkosti napětí). Bez doložení konkrétního školního klíče se navržené změny nevydávají za ověřené odpovědi.
 
-Předběžné odpovědi se hodnotí podle dodaného `correctAnswerId`, s viditelným označením pracovního klíče. Nejde o oficiálně potvrzenou správnost. V dodané databázi má 61 položek klíč "1", otázka 7 má `null`. V testu se možnosti vždy náhodně promíchají; skórování porovnává stabilní ID a nespoléhá na pořadí ani na hodnotu "1".
+Možnosti v testech se vždy promíchají. Hodnocení porovnává `correctAnswerId` se stabilním ID volby, nikdy s pozicí. Stav needs_review má přednost i před neprázdným correctAnswerId. Kompletní test obsahuje 62 položek, z nichž 55 lze hodnotit podle použitého klíče; filtr needs_review vybere těchto 55.
 
-Pozdější oprava sdíleného klíče znamená změnu `correctAnswerId`, `answerStatus` a `answerNote` ve výchozím JSONu a nové nasazení. Neměňte přitom ID ani původní texty. Editor v Přehledu otázek umožňuje opravu pro vlastní prohlížeč, včetně nejednoznačného stavu a obnovení výchozího klíče. Lokální změny jsou součástí exportu postupu; na spolužáky se automaticky nepřenášejí. Úprava se projeví v nových testech. Rozpracované a dokončené testy mají snímek klíče, aby se historická hodnocení nepřepisovala.
+Pole `keyRevision` identifikuje revizi. Nové testy používají aktuální databázi; historické a rozpracované testy zachovají svůj snímek a na odlišnou revizi upozorní. Statistiky se nepřepočítávají zpětně. Lokální úpravy zůstávají zachované s upozorněním, pokud vycházejí ze staré revize. U každé otázky lze v editoru obnovit aktuální výchozí klíč. Lokální změna není vydávána za kontrolu zdroji a nepřenáší se ostatním spolužákům.
 
-Soubor [questions.json](src/data/questions.json) uchovává předchozí katalog pouze pro témata a migraci dříve uložených dat. Jeho klíče ani stav ověření se nepoužívají jako výchozí hodnoty nových otázek. [Starší kontrola](docs/kontrola-otazek.md) a extrakční skripty jsou historické podklady; jejich odlišné hodnocení bylo nahrazeno dodanou JSON databází.
+Pozdější změnu sdíleného klíče proveďte v primárním JSONu: upravte `correctAnswerId`, `answerStatus`, `answerNote`, odkazy a `keyRevision`, doplňte záznam kontroly a znovu nasaďte aplikaci. Neměňte původní ID ani texty.
+
+[questions.json](src/data/questions.json) slouží pouze pro témata a migraci starých dat. [Kontrola z 8. 11.](docs/kontrola-otazek.md), [původní dodané poznámky](docs/MPC-BEZ_otazky_klic.md) a staré extrakční skripty jsou historické podklady. Jejich starší počty a klíče nejsou aktuálními pravidly aplikace.
 
 ## Data a zálohy
 

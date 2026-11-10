@@ -1,0 +1,714 @@
+{
+  "reviewedAt": "2026-11-10",
+  "scope": "Všech 62 původních otázek a všechny nabídnuté možnosti; nové posouzení vůči veřejným primárním zdrojům. Plné současné znění všech placených ČSN ani potvrzený školní klíč nejsou k dispozici.",
+  "entries": [
+    {
+      "number": 1,
+      "verdict": "supported",
+      "note": "Automatické odpojení je opatření pro ochranu při poruše. Přetížení a přepětí řeší jiné ochranné funkce.",
+      "sources": [
+        "https://www.electrical-installation.org/enwiki/Types_of_protection_against_electric_shock"
+      ],
+      "questionId": "bez-01",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 2,
+      "verdict": "supported",
+      "note": "V signalizaci stavu stroje značí žlutá mimořádný stav.",
+      "sources": [
+        "https://literature.rockwellautomation.com/idc/groups/literature/documents/pp/800e-pp001_-en-p.pdf#page=9"
+      ],
+      "questionId": "bez-02",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 3,
+      "verdict": "supported",
+      "note": "V signalizaci stavu stroje značí červená nouzový stav.",
+      "sources": [
+        "https://literature.rockwellautomation.com/idc/groups/literature/documents/pp/800e-pp001_-en-p.pdf#page=9"
+      ],
+      "questionId": "bez-03",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 4,
+      "verdict": "supported",
+      "note": "V signalizaci stavu stroje značí zelená normální stav.",
+      "sources": [
+        "https://literature.rockwellautomation.com/idc/groups/literature/documents/pp/800e-pp001_-en-p.pdf#page=9"
+      ],
+      "questionId": "bez-04",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 5,
+      "verdict": "supported",
+      "note": "Definice připouští přijatelné minimální riziko; posuzuje i rozumně předvídatelné použití. Možnost 1 je nejbližší z nabízených.",
+      "sources": [
+        "https://eur-lex.europa.eu/eli/reg/2023/988"
+      ],
+      "questionId": "bez-05",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 6,
+      "verdict": "supported",
+      "note": "SELV a PELV jsou ochrany malým napětím; 25 V AC ani 60 V DC nejsou jejich obecnou definicí.",
+      "sources": [
+        "https://www.electrical-installation.org/enwiki/Extra_Low_Voltage_(ELV)"
+      ],
+      "questionId": "bez-06",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 7,
+      "verdict": "unresolved",
+      "note": "Žádná možnost přesně nevystihuje doplňující ochranné pospojování; nejde o základní ochranu proti přímému dotyku. Bez hodnocení.",
+      "sources": [
+        "https://www.electrical-installation.org/enwiki/Types_of_protection_against_electric_shock",
+        "https://electrical.theiet.org/wiring-matters/years/2019/76-july-2019/protective-bonding-habits/"
+      ],
+      "questionId": "bez-07",
+      "correctAnswerId": null,
+      "answerStatus": "needs_review"
+    },
+    {
+      "number": 8,
+      "verdict": "conditional",
+      "note": "Z nabídky vychází TN. Přímo uzemněný bod zdroje ale má také TT, která v nabídce chybí.",
+      "sources": [
+        "https://www.electrical-installation.org/enwiki/Definition_of_standardised_earthing_schemes"
+      ],
+      "questionId": "bez-08",
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous"
+    },
+    {
+      "number": 9,
+      "verdict": "conditional",
+      "note": "Pracovní návrh 1 zachován. Bezpečné odpojení je doloženo, přesná výjimka pro přemisťování za provozu závisí na konstrukci a návodu výrobce.",
+      "sources": [
+        "https://www.hse.gov.uk/electricity/introduction.htm",
+        "https://www.fbmi.cvut.cz/cs/fakulta/navstevni-rad"
+      ],
+      "questionId": "bez-09",
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous"
+    },
+    {
+      "number": 10,
+      "verdict": "supported",
+      "note": "Zařízení s nebezpečnou závadou se přestává používat; výstraha ani kvalifikovaná obsluha závadu neodstraňují.",
+      "sources": [
+        "https://www.hse.gov.uk/electricity/introduction.htm"
+      ],
+      "questionId": "bez-10",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 11,
+      "verdict": "supported",
+      "note": "Běžná trojfázová distribuční síť má jmenovité napětí 230/400 V.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=4"
+      ],
+      "questionId": "bez-11",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 12,
+      "verdict": "supported",
+      "note": "Uživatelská kontrola před použitím se odlišuje od pravidelné odborné revize.",
+      "sources": [
+        "https://books.hse.gov.uk/gempdf/hsg107.pdf#page=12",
+        "https://www.theiet.org/media/8630/safe-use-of-electrical-work-equipment-at-home.pdf"
+      ],
+      "questionId": "bez-12",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 13,
+      "verdict": "supported",
+      "note": "§ 6 označuje elektrotechnika pro samostatnou činnost v rozsahu způsobilosti; řízení činnosti upravuje § 7.",
+      "sources": [
+        "https://e-sbirka.gov.cz/sb/2022/194"
+      ],
+      "questionId": "bez-13",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 14,
+      "verdict": "supported",
+      "note": "Pro dotyk neživých částí v suchém prostředí materiál uvádí 50 V AC / 120 V DC. Nezaměňovat s přímým dotykem.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=17",
+        "https://www.electrical-installation.org/enwiki/Types_of_protection_against_electric_shock"
+      ],
+      "questionId": "bez-14",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 15,
+      "verdict": "supported",
+      "note": "PEN má z mechanických důvodů minimum 10 mm² Cu nebo 16 mm² Al.",
+      "sources": [
+        "https://www.electrical-installation.org/enwiki/Sizing_of_protective_earthing_conductor"
+      ],
+      "questionId": "bez-15",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 16,
+      "verdict": "supported",
+      "note": "PELV dovoluje uzemnění jednoho bodu obvodu. Tím se liší od SELV.",
+      "sources": [
+        "https://www.electrical-installation.org/enwiki/Extra_Low_Voltage_(ELV)"
+      ],
+      "questionId": "bez-16",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 17,
+      "verdict": "supported",
+      "note": "§ 4 odst. 4 písm. b) připouští práci poučené osoby podle pokynů na mn a nn bez napětí, v rozsahu poučení.",
+      "sources": [
+        "https://e-sbirka.gov.cz/sb/2022/194"
+      ],
+      "questionId": "bez-17",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 18,
+      "verdict": "supported",
+      "note": "Nebezpečný výrobek je definován jako výrobek, který nesplňuje definici bezpečného výrobku.",
+      "sources": [
+        "https://eur-lex.europa.eu/eli/reg/2023/988"
+      ],
+      "questionId": "bez-18",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 19,
+      "verdict": "conditional",
+      "note": "Režim nepřenosných spotřebičů nelze paušalizovat. Náhled starší ČSN 33 1610 nedokládá úplný současný režim; pracovní návrh 1 není univerzálním pravidlem.",
+      "sources": [
+        "https://csnonlinefirmy.agentura-cas.cz/html_nahledy/33/71705/71705_nahled.htm",
+        "https://www.electrical-installation.org/enwiki/Quality_and_safety_of_an_electrical_installation"
+      ],
+      "questionId": "bez-19",
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous"
+    },
+    {
+      "number": 20,
+      "verdict": "disputed",
+      "note": "Požadovaná změna na možnost 3 není doložena. VUT 2024 rozlišuje jednoduché oddělení SELV od země (možnost 1) a ochranné oddělení od jiných obvodů. Do vyjasnění se otázka nehodnotí.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=18",
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=22",
+        "https://www.electrical-installation.org/enwiki/Extra_Low_Voltage_(ELV)"
+      ],
+      "questionId": "bez-20",
+      "correctAnswerId": "3",
+      "answerStatus": "needs_review",
+      "requestedAnswerId": "3",
+      "sourceSupportedAnswerId": "1"
+    },
+    {
+      "number": 21,
+      "verdict": "conditional",
+      "note": "Hodnoty 5 Ω, výjimečně 15 Ω, jsou doloženy pro uzel zdroje v uvedené síti TN; otázka soustavu nevymezuje.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=47"
+      ],
+      "questionId": "bez-21",
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous"
+    },
+    {
+      "number": 22,
+      "verdict": "supported",
+      "note": "Automatické odpojení spojuje ochranné uzemnění s vypnutím v předepsané době; musí se koordinovat síť a ochranný přístroj.",
+      "sources": [
+        "https://www.electrical-installation.org/enwiki/Types_of_protection_against_electric_shock"
+      ],
+      "questionId": "bez-22",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 23,
+      "verdict": "conditional",
+      "note": "PE může být i neizolovaný, ale vedení mimo trasu pracovních vodičů má podmínky podle ochrany a impedance smyčky.",
+      "sources": [
+        "https://www.electrical-installation.org/enwiki/Connection_and_choice_for_protective_earthing_conductor"
+      ],
+      "questionId": "bez-23",
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous"
+    },
+    {
+      "number": 24,
+      "verdict": "supported",
+      "note": "§ 4 odst. 4 písm. e) požaduje u poučené osoby v blízkosti nekrytých živých částí vn pod napětím dozor osoby znalé.",
+      "sources": [
+        "https://e-sbirka.gov.cz/sb/2022/194"
+      ],
+      "questionId": "bez-24",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 25,
+      "verdict": "supported",
+      "note": "§ 4 odst. 4 písm. d) uvádí dohled osoby znalé a bezpečnou vzdálenost u nekrytých živých částí nn.",
+      "sources": [
+        "https://e-sbirka.gov.cz/sb/2022/194"
+      ],
+      "questionId": "bez-25",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 26,
+      "verdict": "supported",
+      "note": "Samostatnost platí v rozsahu odborné způsobilosti; zvláštní případy vycházející z rizik jsou výjimkou.",
+      "sources": [
+        "https://e-sbirka.gov.cz/sb/2022/194"
+      ],
+      "questionId": "bez-26",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 27,
+      "verdict": "supported",
+      "note": "Svorky fází se označují U, V, W; vodiče L1, L2, L3.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+      ],
+      "questionId": "bez-27",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 28,
+      "verdict": "supported",
+      "note": "Plynové potrubí neslouží jako PE. Ochranné pospojování potrubí je odlišná věc.",
+      "sources": [
+        "https://www.electrical-installation.org/enwiki/Connection_and_choice_for_protective_earthing_conductor"
+      ],
+      "questionId": "bez-28",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 29,
+      "verdict": "supported",
+      "note": "Možnost 1 odpovídá výukové definici práce na EZ.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=24"
+      ],
+      "questionId": "bez-29",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 30,
+      "verdict": "conditional",
+      "note": "Možnost 1 odpovídá starší výuce. Dnešní posouzení zakázaných PPN závisí také na podmínkách a možnosti zajistit bezpečnost.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=27",
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+      ],
+      "questionId": "bez-30",
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous"
+    },
+    {
+      "number": 31,
+      "verdict": "conditional",
+      "note": "Možnost 1 používá starší kvalifikační terminologii. Nelze ji bez dalšího převést na dnešní oprávnění § 6 a § 7.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=25",
+        "https://e-sbirka.gov.cz/sb/2022/194"
+      ],
+      "questionId": "bez-31",
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous"
+    },
+    {
+      "number": 32,
+      "verdict": "supported",
+      "note": "PPN zahrnuje přímý dotyk nebo dotyk pracovní pomůckou při použití ochranných pomůcek.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=24"
+      ],
+      "questionId": "bez-32",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 33,
+      "verdict": "supported",
+      "note": "Práce podle pokynů vychází z nejnutnějších pokynů; podrobnější pokyny charakterizují dohled.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=24"
+      ],
+      "questionId": "bez-33",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 34,
+      "verdict": "conditional",
+      "note": "Možnost 1 odpovídá historickému rozlišení. Vzdálenost 20 cm není samostatným současným oprávněním k práci.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=25",
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=8"
+      ],
+      "questionId": "bez-34",
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous"
+    },
+    {
+      "number": 35,
+      "verdict": "supported",
+      "note": "Nebezpečný příkaz se nevykonává; písemná forma neodstraňuje rozpor s bezpečnostními povinnostmi.",
+      "sources": [
+        "https://ppropo.mpsv.cz/zakon_262_2006"
+      ],
+      "questionId": "bez-35",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 36,
+      "verdict": "supported",
+      "note": "Pravidelné ověření má odhalovat závady i zhoršení stavu instalace.",
+      "sources": [
+        "https://www.electrical-installation.org/enwiki/Quality_and_safety_of_an_electrical_installation"
+      ],
+      "questionId": "bez-36",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 37,
+      "verdict": "unresolved",
+      "note": "3,5 mA AC / 10 mA DC je uvedeno pro poruchové a specifické podmínky; normální podmínky mají 0,5 / 2 mA. Otázka kontext neurčuje. Bez hodnocení.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=17"
+      ],
+      "questionId": "bez-37",
+      "correctAnswerId": null,
+      "answerStatus": "needs_review"
+    },
+    {
+      "number": 38,
+      "verdict": "supported",
+      "note": "Pro popsaný běžný prodlužovací přívod je požadován ochranný vodič i ochranné kontakty. Nejde o libovolný napájecí přívod.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=16"
+      ],
+      "questionId": "bez-38",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 39,
+      "verdict": "supported",
+      "note": "První číslice IP zahrnuje ochranu osob před přístupem k nebezpečným částem.",
+      "sources": [
+        "https://www.electrical-installation.org/enwiki/Protection_provided_for_enclosed_equipment:_codes_IP_and_IK",
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=16"
+      ],
+      "questionId": "bez-39",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 40,
+      "verdict": "supported",
+      "note": "Před použitím pomůcky se ověřuje její řádný stav.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=29"
+      ],
+      "questionId": "bez-40",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 41,
+      "verdict": "unresolved",
+      "note": "Oddělovací transformátor je obvyklým zdrojem. Výlučné slovo musí opomíjí jiné zdroje s rovnocenným oddělením. Bez jednoznačného klíče.",
+      "sources": [
+        "https://www.electrical-installation.org/enwiki/The_electrical_separation_of_circuits",
+        "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=52"
+      ],
+      "questionId": "bez-41",
+      "correctAnswerId": null,
+      "answerStatus": "needs_review"
+    },
+    {
+      "number": 42,
+      "verdict": "supported",
+      "note": "Při práci podle pokynů odpovídá za vlastní dodržování předpisů pracující.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=24"
+      ],
+      "questionId": "bez-42",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 43,
+      "verdict": "supported",
+      "note": "Přídavná izolace je nezávislým doplněním základní izolace.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=22",
+        "https://eluc.ikap.cz/lekce/dvojita-nebo-zesilena-izolace"
+      ],
+      "questionId": "bez-43",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 44,
+      "verdict": "supported",
+      "note": "Příkazová značka je modrý kruh s bílým piktogramem.",
+      "sources": [
+        "https://www.hse.gov.uk/workplacetransport/safetysigns/index.htm"
+      ],
+      "questionId": "bez-44",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 45,
+      "verdict": "supported",
+      "note": "Střední bod stejnosměrné soustavy nese označení M.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+      ],
+      "questionId": "bez-45",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 46,
+      "verdict": "supported",
+      "note": "Číslice 4 na druhém místě IP označuje ochranu proti stříkající vodě.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=16",
+        "https://www.electrical-installation.org/enwiki/Protection_provided_for_enclosed_equipment:_codes_IP_and_IK"
+      ],
+      "questionId": "bez-46",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 47,
+      "verdict": "supported",
+      "note": "Ochranný vodič a jeho svorka mají označení PE.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+      ],
+      "questionId": "bez-47",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 48,
+      "verdict": "conditional",
+      "note": "Pro popsaný český systém stanovených výrobků odpovídá možnost 1. Konkrétní výrobek může podléhat i přímo použitelnému předpisu EU.",
+      "sources": [
+        "https://unmz.gov.cz/caste-dotazy/casto-kladene-otazky-zkusebnictvi/",
+        "https://aplikace.unmz.cz/urad/seznam-narizeni-vlady-k-provedeni-zakona-c-22-1997-sb--c574"
+      ],
+      "questionId": "bez-48",
+      "correctAnswerId": "1",
+      "answerStatus": "provisional_ambiguous"
+    },
+    {
+      "number": 49,
+      "verdict": "supported",
+      "note": "Směrnice vyžadují vnitrostátní provedení; nařízení EU jsou přímo použitelná.",
+      "sources": [
+        "https://commission.europa.eu/law/law-making-process/types-eu-law_en"
+      ],
+      "questionId": "bez-49",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 50,
+      "verdict": "supported",
+      "note": "PEN současně plní ochrannou funkci; jeho kontinuita se nesmí přerušovat běžným spínáním.",
+      "sources": [
+        "https://www.electrical-installation.org/enwiki/Breaking_of_the_neutral_conductor",
+        "https://www.electrical-installation.org/enwiki/Connection_and_choice_for_protective_earthing_conductor"
+      ],
+      "questionId": "bez-50",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 51,
+      "verdict": "supported",
+      "note": "V TT jsou neživé části připojeny k ochrannému uzemnění, nikoli k nulovému vodiči N.",
+      "sources": [
+        "https://www.electrical-installation.org/enwiki/Definition_of_standardised_earthing_schemes"
+      ],
+      "questionId": "bez-51",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 52,
+      "verdict": "supported",
+      "note": "Konektory SELV/PELV musí bránit záměně s jinou napěťovou soustavou; ochranný kontakt není obecný společný požadavek.",
+      "sources": [
+        "https://www.electrical-installation.org/enwiki/Extra_Low_Voltage_(ELV)"
+      ],
+      "questionId": "bez-52",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 53,
+      "verdict": "supported",
+      "note": "Nulový vodič N je světle modrý.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5",
+        "https://www.electrical-installation.org/enwiki/The_neutral_conductor"
+      ],
+      "questionId": "bez-53",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 54,
+      "verdict": "supported",
+      "note": "PE se značí kombinací zelené a žluté.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+      ],
+      "questionId": "bez-54",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 55,
+      "verdict": "supported",
+      "note": "Možnost 1 je přípustné označení PEN. Nejde o jedinou mezinárodně přípustnou variantu.",
+      "sources": [
+        "https://www.electrical-installation.org/enwiki/The_neutral_conductor",
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+      ],
+      "questionId": "bez-55",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 56,
+      "verdict": "supported",
+      "note": "Pro izolované fázové vodiče se používá hnědá, černá a šedá; samotná barva neurčuje sled fází.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=5"
+      ],
+      "questionId": "bez-56",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 57,
+      "verdict": "supported",
+      "note": "Součástí výchozího ověření je prohlídka, zkoušení i zpráva s výsledky.",
+      "sources": [
+        "https://www.electrical-installation.org/enwiki/Quality_and_safety_of_an_electrical_installation"
+      ],
+      "questionId": "bez-57",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 58,
+      "verdict": "supported",
+      "note": "Výstražná značka je žlutý trojúhelník s černým okrajem a piktogramem.",
+      "sources": [
+        "https://www.hse.gov.uk/workplacetransport/safetysigns/index.htm"
+      ],
+      "questionId": "bez-58",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 59,
+      "verdict": "unresolved",
+      "note": "Starší tabulka uvádí 25/50 V, novější výuka pro jiné podmínky 50 V trvale. Chybí určení kontextu. Bez hodnocení.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=45",
+        "https://www.utee.fekt.vut.cz/sites/default/files/BEZ_Pracovni-sesit.pdf#page=17",
+        "https://www.electrical-installation.org/enwiki/Types_of_protection_against_electric_shock"
+      ],
+      "questionId": "bez-59",
+      "correctAnswerId": null,
+      "answerStatus": "needs_review"
+    },
+    {
+      "number": 60,
+      "verdict": "disputed",
+      "note": "Požadovaná možnost 2 neodpovídá citované definici ve skriptech VUT: pro práci bez napětí uvádějí kryt před úmyslným dotykem (1), nahodilý dotyk patří k práci v blízkosti napětí. Do vyjasnění bez hodnocení.",
+      "sources": [
+        "https://www.utee.fekt.vut.cz/sites/default/files/inline-files/bbz.pdf#page=24",
+        "https://e-sbirka.gov.cz/sb/2022/194"
+      ],
+      "questionId": "bez-60",
+      "correctAnswerId": "2",
+      "answerStatus": "needs_review",
+      "requestedAnswerId": "2",
+      "sourceSupportedAnswerId": "1"
+    },
+    {
+      "number": 61,
+      "verdict": "supported",
+      "note": "Zákazová značka je bílý kruh s červeným okrajem; úplné provedení zahrnuje i červený šikmý pruh.",
+      "sources": [
+        "https://www.hse.gov.uk/workplacetransport/safetysigns/index.htm"
+      ],
+      "questionId": "bez-61",
+      "correctAnswerId": "1",
+      "answerStatus": "verified"
+    },
+    {
+      "number": 62,
+      "verdict": "unresolved",
+      "note": "Povinnost stanovit termíny plyne z předpisu, ale jejich obsah současně závisí na rizicích a dalších okolnostech. Nabídka neumožňuje jednoznačný jediný výběr.",
+      "sources": [
+        "https://suip.gov.cz/bezpecnost-prace-otazky-a-odpovedi",
+        "https://e-sbirka.gov.cz/sb/2005/101"
+      ],
+      "questionId": "bez-62",
+      "correctAnswerId": null,
+      "answerStatus": "needs_review"
+    }
+  ]
+}

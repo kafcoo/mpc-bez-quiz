@@ -1,3 +1,4 @@
+import audit from "./data/review-2026-11-10.json";
 import source from "./data/MPC-BEZ_otazky_klic.json";
 import legacy from "./data/questions.json";
 import { describe, it, expect } from "vitest";
@@ -44,9 +45,9 @@ describe("původní databáze", () => {
     expect(questions[38].question.startsWith("První číslice")).toBe(true);
   });
   it("nevnucuje klíč sporným otázkám", () => {
-    expect(questions.filter((q) => !q.correctAnswerId)).toHaveLength(1);
+    expect(questions.filter((q) => !q.correctAnswerId)).toHaveLength(5);
     expect(questions.filter((q) => q.answerStatus === "verified")).toHaveLength(
-      0,
+      46,
     );
   });
 });
@@ -202,7 +203,7 @@ describe("ukládání a zálohy", () => {
 });
 
 describe("JSON jako autoritativní databáze", () => {
-  it("dokončí všech 62 otázek: 61 hodnocených a 1 bez hodnocení", () => {
+  it("dokončí všech 62 otázek: 55 hodnocených a 7 bez hodnocení", () => {
     let s = fresh();
     s.active = createSession(questions, "Kompletní test", true, false);
     const order = s.active.questions.map((q) => q.id);
@@ -215,10 +216,10 @@ describe("JSON jako autoritativní databáze", () => {
     expect(stats(s.answers)).toMatchObject({
       total: 62,
       unique: 62,
-      graded: 61,
-      correct: 61,
+      graded: 55,
+      correct: 55,
       incorrect: 0,
-      ungraded: 1,
+      ungraded: 7,
       rate: 100,
     });
     expect(s.history[0].questions.map((q) => q.id)).toEqual(order);
@@ -364,5 +365,74 @@ describe("migrace předchozího postupu", () => {
     expect(migrated.overrides["bez-01"].correctAnswerId).toBe("2");
     expect(migrated.settings.dark).toBe(true);
     expect(parseStore(JSON.stringify(migrated))).toEqual(migrated);
+  });
+});
+
+describe("revize 10. 11. 2026", () => {
+  it("nemění původní texty ani jednu ze 186 možností", () => {
+    for (const [i, q] of questions.entries()) {
+      expect(q.question).toBe(legacy[i].question);
+      expect(q.options.map((o) => o.text)).toEqual(
+        legacy[i].options.map((o) => o.text),
+      );
+    }
+  });
+  it("má právě jednu dohledatelnou kontrolu pro každou otázku", () => {
+    expect(audit.entries).toHaveLength(62);
+    expect(new Set(audit.entries.map((e) => e.questionId)).size).toBe(62);
+    for (const q of questions) {
+      const e = audit.entries.find((e) => e.questionId === q.id)!;
+      expect(q.correctAnswerId).toBe(e.correctAnswerId);
+      expect(q.answerStatus).toBe(e.answerStatus);
+      expect(q.reviewedAt).toBe("2026-11-10");
+      expect(q.sources?.length).toBeGreaterThan(0);
+      for (const s of q.sources!)
+        expect(new URL(s.url).protocol).toBe("https:");
+    }
+  });
+  it.each([
+    [20, "3"],
+    [60, "2"],
+  ] as const)(
+    "otázka %s odděluje navrženou změnu od výsledku ověření",
+    (number, proposal) => {
+      const q = questions[number - 1];
+      expect(q.correctAnswerId).toBe(proposal);
+      expect(q.sourceSupportedAnswerId).toBe("1");
+      expect(q.answerStatus).toBe("needs_review");
+      for (const option of q.options) {
+        let s = fresh();
+        s.active = createSession([q], "test", false, true);
+        s = answer(s, option.id);
+        expect(s.answers[0].correct).toBeNull();
+        expect(s.progress[q.id].attempts).toBe(0);
+        expect(parseStore(JSON.stringify(s))).toEqual(s);
+      }
+    },
+  );
+  it("revize nepřepočítá dokončené ani rozpracované testy z minulé verze", () => {
+    let s = fresh();
+    const q = {
+      ...questions[19],
+      answerStatus: "provisional" as const,
+      correctAnswerId: "1",
+      keyRevision: undefined,
+      sourceSupportedAnswerId: undefined,
+      reviewVerdict: undefined,
+      reviewedAt: undefined,
+    };
+    s.active = createSession([q], "Původní test", false, true);
+    s = answer(s, "1");
+    const before = parseStore(JSON.stringify(s));
+    expect(before.answers[0].correct).toBe(true);
+    expect(before.active?.questions[0].correctAnswerId).toBe("1");
+    s = finish(before);
+    expect(parseStore(JSON.stringify(s)).history[0].answers[0].correct).toBe(
+      true,
+    );
+    s.active = createSession([questions[19]], "Nový test", false, true);
+    s = answer(s, "3");
+    expect(s.answers.at(-1)?.correct).toBeNull();
+    expect(s.progress[questions[19].id].attempts).toBe(1);
   });
 });

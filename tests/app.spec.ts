@@ -126,7 +126,7 @@ test("kompletní test respektuje filtr, dostupnost a rozložení", async ({
   await page.getByRole("button", { name: /62 otázek Kompletní test/ }).click();
   await page.getByLabel("Vynechat otázky k ověření (needs_review)").check();
   await page.getByRole("button", { name: "Spustit procvičování" }).click();
-  await expect(page.locator(".quiz-progress")).toContainText("z 61");
+  await expect(page.locator(".quiz-progress")).toContainText("z 55");
   await page.getByRole("button", { name: "Označit jako obtížnou" }).click();
   await expect(
     page.getByRole("button", { name: "Označit jako obtížnou" }),
@@ -176,7 +176,7 @@ test("needs_review se nehodnotí a zůstane nehodnocené po obnovení", async ({
   await expect(page.getByText("Uloženo bez hodnocení")).toBeVisible();
   await expect(page.locator(".answer.correct")).toHaveCount(0);
   await expect(page.locator(".question-sources")).toContainText(
-    "Zdroj uvedený v JSON",
+    "Zdroj:",
   );
   const state = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("mpc-bez-v1")!),
@@ -203,10 +203,58 @@ test("předběžný klíč jde opravit a nové hodnocení používá ID druhé m
     .getByRole("button", { name: /v případě přetížení zařízení/ })
     .click();
   await expect(page.getByText("Správná odpověď podle klíče")).toBeVisible();
-  await expect(page.locator(".quiz-note")).toContainText("předběžného");
+  await expect(page.locator(".quiz-note")).toContainText("oficiálním");
   const state = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("mpc-bez-v1")!),
   );
   expect(state.answers[0].answerId).toBe("2");
   expect(state.answers[0].correct).toBe(true);
+});
+
+for (const [number, text, sourceText] of [
+  [
+    20,
+    "mezi živými částmi a zemí musí být dvojitá či zesílená izolace",
+    "mezi živými části a zemí musí být základní izolace",
+  ],
+  [60, "chránícím před nahodilým dotykem", "chránícím před úmyslným dotykem"],
+] as const)
+  test(
+    "sporná oprava " + number + " nehodnotí návrh a ukáže závěr zdrojů",
+    async ({ page }) => {
+      await group(page, number, number);
+      await page.getByRole("button", { name: new RegExp(text + "$") }).click();
+      await expect(page.getByText("Uloženo bez hodnocení")).toBeVisible();
+      await expect(page.locator(".answer.correct")).toHaveCount(0);
+      await expect(page.locator(".audit-proposal")).toContainText(text);
+      await expect(page.locator(".audit-source-answer")).toContainText(
+        sourceText,
+      );
+      const state = await page.evaluate(() =>
+        JSON.parse(localStorage.getItem("mpc-bez-v1")!),
+      );
+      expect(state.answers[0].correct).toBeNull();
+      expect(
+        state.progress["bez-" + String(number).padStart(2, "0")].attempts,
+      ).toBe(0);
+    },
+  );
+test("starší rozpracovaný test zůstane zachovaný s upozorněním na revizi", async ({
+  page,
+}) => {
+  await group(page, 1, 1);
+  await page
+    .getByRole("button", { name: /v případě poruchy zařízení/ })
+    .click();
+  await page.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem("mpc-bez-v1")!);
+    delete s.active.questions[0].keyRevision;
+    localStorage.setItem("mpc-bez-v1", JSON.stringify(s));
+  });
+  await page.reload();
+  await page.getByRole("button", { name: "Pokračovat v testu" }).click();
+  await expect(
+    page.getByText(/Tento test používá starší revizi klíče/),
+  ).toBeVisible();
+  await expect(page.getByText("Správná odpověď podle klíče")).toBeVisible();
 });

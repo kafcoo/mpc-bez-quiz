@@ -12,6 +12,9 @@ export interface Question {
   category: string;
   answerStatus: Status;
   answerNote: string;
+  keyRevision?: string;
+  sourceSupportedAnswerId?: string | null;
+  reviewVerdict?: "supported" | "conditional" | "disputed" | "unresolved";
   keySource?: "json" | "legacy";
   note?: string;
   expectedTestAnswerId?: string | null;
@@ -20,14 +23,20 @@ export interface Question {
 }
 // The supplied JSON is authoritative for text, IDs, key and status. The old
 // catalog contributes only topic labels, and supports migration of saved data.
+export const KEY_REVISION = raw.keyRevision;
 export const questions: Question[] = raw.questions.map((q) => ({
   ...q,
   answerStatus: q.answerStatus as Status,
+  reviewVerdict: q.reviewVerdict as Question["reviewVerdict"],
+  keyRevision: KEY_REVISION,
   explanation: q.answerNote,
   category: legacy.find((old) => old.originalNumber === q.originalNumber)!
     .category,
   keySource: "json",
-  sources: q.sources.map((url) => ({ title: "Zdroj uvedený v JSON", url })),
+  sources: q.sources.map((url) => ({
+    title: `Zdroj: ${new URL(url).hostname}`,
+    url,
+  })),
 }));
 export const questionNumber = (id: string) =>
   questions.find((q) => q.id === id)?.originalNumber ?? 0;
@@ -270,6 +279,14 @@ export function validQuestion(v: unknown): v is Question {
     (v.correctAnswerId === null ||
       v.options.some((o) => o.id === v.correctAnswerId)) &&
     (v.answerStatus !== "verified" || v.correctAnswerId !== null) &&
+    (v.keyRevision === undefined || date(v.keyRevision)) &&
+    (v.reviewVerdict === undefined ||
+      ["supported", "conditional", "disputed", "unresolved"].includes(
+        String(v.reviewVerdict),
+      )) &&
+    (v.sourceSupportedAnswerId === undefined ||
+      v.sourceSupportedAnswerId === null ||
+      v.options.some((o) => o.id === v.sourceSupportedAnswerId)) &&
     (v.note === undefined || str(v.note)) &&
     (v.expectedTestAnswerId === undefined ||
       v.expectedTestAnswerId === null ||

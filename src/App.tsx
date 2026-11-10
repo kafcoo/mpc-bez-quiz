@@ -35,6 +35,7 @@ import {
   mastered,
   parseStore,
   questions,
+  KEY_REVISION,
   questionNumber,
   save,
   stats,
@@ -101,6 +102,16 @@ export default function App() {
   const [notice, setNotice] = useState("");
   const upload = useRef<HTMLInputElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
+  const outdatedOverrides = Object.values(store.overrides).some(
+    (q) => q.keyRevision !== KEY_REVISION,
+  );
+  const bankCounts = {
+    verified: questions.filter((q) => q.answerStatus === "verified").length,
+    conditional: questions.filter((q) =>
+      q.answerStatus.startsWith("provisional"),
+    ).length,
+    review: questions.filter((q) => q.answerStatus === "needs_review").length,
+  };
   const all = questions.map((q) => store.overrides[q.id] ?? q);
   const summary = stats(store.answers);
   const problems = all.filter((q) => isProblem(store.progress[q.id]));
@@ -319,16 +330,40 @@ export default function App() {
   );
   const renderStatus = (question: Question) => (
     <span className={`badge ${question.answerStatus}`}>
-      {statusText[question.answerStatus]}
+      {question.answerStatus === "verified" && question.reviewedAt
+        ? "Doloženo zdrojem"
+        : statusText[question.answerStatus]}
     </span>
   );
   const questionDetails = (question: Question) => (
     <div className="explanation">
       <strong>
         {question.answerStatus !== "needs_review" && question.correctAnswerId
-          ? `${question.answerStatus === "verified" ? "Lokálně ověřená odpověď" : "Předběžný pracovní klíč"}: ${question.options.find((o) => o.id === question.correctAnswerId)?.text}`
-          : "Klíč není určen · bez hodnocení"}
+          ? `${question.answerStatus === "verified" ? "Posouzená odpověď" : "Předběžný pracovní klíč"}: ${question.options.find((o) => o.id === question.correctAnswerId)?.text}`
+          : question.correctAnswerId
+            ? "Klíč je sporný · bez hodnocení"
+            : "Klíč není určen · bez hodnocení"}
       </strong>
+      {question.answerStatus === "needs_review" && question.correctAnswerId && (
+        <p className="audit-proposal">
+          Návrh ke kontrole (nehodnotí se):{" "}
+          {
+            question.options.find((o) => o.id === question.correctAnswerId)
+              ?.text
+          }
+        </p>
+      )}
+      {question.answerStatus === "needs_review" &&
+        question.sourceSupportedAnswerId && (
+          <p className="audit-source-answer">
+            Citované zdroje podporují:{" "}
+            {
+              question.options.find(
+                (o) => o.id === question.sourceSupportedAnswerId,
+              )?.text
+            }
+          </p>
+        )}
       <p>{question.explanation}</p>
       <small>{question.note}</small>
       {!!question.sources?.length && (
@@ -429,6 +464,13 @@ export default function App() {
             <div className="alert" role="alert">
               {error}
             </div>
+          )}
+          {outdatedOverrides && (
+            <p className="alert">
+              Máš lokální úpravy ze starší revize klíče. U dotčených otázek
+              můžeš v editoru obnovit aktuální výchozí JSON; tvoje úpravy
+              automaticky nepřepisujeme.
+            </p>
           )}
           {page === "home" && (
             <>
@@ -656,11 +698,11 @@ export default function App() {
               <div className="source-note">
                 <ShieldCheck size={18} />
                 <span>
-                  Vycházíme ze sady otázek 2022. Klíč není oficiální; pracovní a
-                  sporné odpovědi jsou označené.{" "}
+                  Klíč zkontrolován 10. 11. 2026. Doložené, podmíněné a sporné
+                  odpovědi jsou rozlišené.{" "}
                   {all.filter((q) => q.answerStatus === "needs_review").length}{" "}
-                  otázek je bez hodnocení. Ostatní se hodnotí podle předběžného
-                  klíče v JSONu.
+                  otázek je bez hodnocení. Podmíněné klíče mají výhrady a
+                  zdroje.
                 </span>
                 <button
                   className="text-button"
@@ -713,12 +755,12 @@ export default function App() {
                 </span>
               </div>
               {active.questions.some(
-                (question) => question.keySource === "legacy",
+                (question) => question.keyRevision !== KEY_REVISION,
               ) && (
                 <p className="alert">
-                  Tento test obsahuje klíč z doby před přechodem na dodaný JSON.
-                  Zachovává tehdejší hodnocení. Pro nový výchozí klíč obnov
-                  případné lokální úpravy a zahaj nový test.
+                  Tento test používá starší revizi klíče a zachovává tehdejší
+                  hodnocení. Pro klíč z kontroly 10. 11. 2026 zahaj nový test;
+                  případné staré lokální úpravy lze obnovit v přehledu otázek.
                 </p>
               )}
               <progress
@@ -802,8 +844,9 @@ export default function App() {
               <p className="muted quiz-note">
                 {q.answerStatus.startsWith("provisional")
                   ? "Hodnoceno podle předběžného pracovního klíče z JSONu. Nejde o oficiálně potvrzenou správnost."
-                  : q.correctAnswerId === null
-                    ? "Tato otázka nemá určený klíč a nezapočítá se do úspěšnosti."
+                  : q.answerStatus === "needs_review" ||
+                      q.correctAnswerId === null
+                    ? "Tato otázka má nejasný nebo sporný klíč a nezapočítá se do úspěšnosti."
                     : "Klíč slouží pro studium a není oficiálním klíčem vyučujícího."}
               </p>
             </div>
@@ -1291,10 +1334,12 @@ export default function App() {
                 <h2>Jak funguje klíč a opakování?</h2>
                 <p>
                   Primárním zdrojem je MPC-BEZ_otazky_klic.json: všech 62 otázek
-                  i možností je zachováno přesně. 45 odpovědí je předběžných, 16
-                  předběžných a nejednoznačných. Otázka 7 má stav needs_review a
-                  neovlivňuje skóre. Ostatní se hodnotí podle correctAnswerId
-                  jako pracovní klíč, nikoli jako oficiálně potvrzené odpovědi.
+                  i možností je zachováno přesně. Kontrola 10. 11. 2026:{" "}
+                  {bankCounts.verified} odpovědí s oporou ve zdrojích,{" "}
+                  {bankCounts.conditional} podmíněných klíčů a{" "}
+                  {bankCounts.review} položek needs_review bez hodnocení. Návrhy
+                  změn u 20 a 60 jsou v rozporu s citovanými zdroji a do
+                  vyjasnění se nehodnotí. Nejde o oficiální klíč vyučujícího.
                 </p>
                 <p>
                   <a
@@ -1304,6 +1349,16 @@ export default function App() {
                     rel="noopener noreferrer"
                   >
                     Výchozí databáze a poznámky ke klíči ↗
+                  </a>
+                </p>
+                <p>
+                  <a
+                    className="text-button"
+                    href="https://github.com/kafcoo/mpc-bez-quiz/blob/main/docs/kontrola-2026-11-10.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Kontrola všech 62 otázek z 10. 11. 2026 včetně zdrojů ↗
                   </a>
                 </p>
                 <p>
@@ -1604,7 +1659,16 @@ export default function App() {
               e.preventDefault();
               setStore((s) => ({
                 ...s,
-                overrides: { ...s.overrides, [editing.id]: editing },
+                overrides: {
+                  ...s.overrides,
+                  [editing.id]: {
+                    ...editing,
+                    keyRevision: KEY_REVISION,
+                    reviewedAt: undefined,
+                    reviewVerdict: undefined,
+                    sourceSupportedAnswerId: undefined,
+                  },
+                },
               }));
               setEditing(null);
             }}

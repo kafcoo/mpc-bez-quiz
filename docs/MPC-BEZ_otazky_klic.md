@@ -1,5 +1,8 @@
 # MPC-BEZ – otázky a klíč (verze 2022)
 
+> **Nahrazeno kontrolou 10. 11. 2026:** [aktuální posouzení všech 62 otázek](kontrola-2026-11-10.md). Tento dokument je historický; jeho klíče a počty již nepopisují současné hodnocení.
+
+
 **Upozornění:** PDF neobsahuje oficiální klíč. Pracovní klíč předpokládá u 61 otázek první možnost. Otázka 7 nemá jednoznačně správnou nabízenou možnost. Další sporné otázky jsou označeny ⚠️.
 
 ## 1. Automatické odpojení od zdroje odpojí zařízení
